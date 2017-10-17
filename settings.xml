@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<settings StampAppVersion="1.04.0811.00">
+	<lang>en</lang>
+	<url>
+		<ip>http://</ip>
+		<pathToImages>/fileservice/~home/StampApp/Images/ProfileImages</pathToImages>
+		<pathToDefaultBlocTemplate>/fileservice/~home/docs/BlocTemplate.xml</pathToDefaultBlocTemplate>
+		<pathToXML>/fileservice/~home/StampApp/BlocTemplates/CurrentAssembly.xml</pathToXML>
+		<pathToDefaultBlocAssembly>/fileservice/~home/StampApp/BlocTemplates/DefaultAssemblies/DefaultBlocAssemblyLib.xml</pathToDefaultBlocAssembly>
+		<pathToXMLCBC>/fileservice/~home/StampApp/ServiceData/Common/sAppServData.xml</pathToXMLCBC>
+	</url>
+</settings>

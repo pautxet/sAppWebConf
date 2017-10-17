@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+<meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1'>
+<title>mPrompt Example</title>
+
+<script src="mPrompt.js"></script>
+<link rel="stylesheet" href="mPrompt.css" />
+
+<style>
+
+html, body { /* sense marges ni padding */
+	margin: 0;
+	padding: 0;
+    height: 100%;
+    width: 100%;
+	overflow: hidden;
+	/* IE10+ */
+	background-image: -ms-radial-gradient(right bottom, ellipse farthest-corner, #E9F2FA 20%, #09274F 100%);
+	/* Mozilla Firefox */
+	background-image: -moz-radial-gradient(right bottom, ellipse farthest-corner, #E9F2FA 20%, #09274F 100%);
+	/* Opera */
+	background-image: -o-radial-gradient(right bottom, ellipse farthest-corner, #E9F2FA 20%, #09274F 100%);
+	/* Webkit (Safari/Chrome 10) */
+	background-image: -webkit-gradient(radial, right bottom, 0, right bottom, 572, color-stop(20, #E9F2FA), color-stop(100, #09274F));
+	/* Webkit (Chrome 11+) */
+	background-image: -webkit-radial-gradient(right bottom, ellipse farthest-corner, #E9F2FA 20%, #09274F 100%);
+	/* W3C Markup */
+	background-image: radial-gradient(ellipse farthest-corner at right bottom, #E9F2FA 20%, #09274F 100%);
+}
+.centerbox{
+    background: rgba(253,253,253,0.4);
+    max-width: 500px;
+	height: 600px;
+    top: 10%;
+    padding: 10px;
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+    border-radius: 5px;
+
+}
+.button{
+    margin-bottom: 20px;
+	margin-left: 20px;
+	margin-right: 20px;
+    height: 26px;
+    color: #ffffff;
+    background: #4E7DA6;
+    padding: 7px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+	vertical-align: middle;
+}
+.button:hover{
+	background: #6A9DC1;
+	position:
+}
+</style>
+
+</head>
+<body>
+  <script>
+  var object;
+    function SetValueToVar(arrayreturned){
+      object.arrayofvalues=arrayreturned;
+    }
+    //mPrompt(parametersQuantity, promptTitle, promptDescription, arrayparametersnames, originalValues, SetValueToVar);
+    function CallmPrompt(){
+        var arrayparametersnames=["parameter1", "parameter2", "parameter3"];
+        arrayoriginalvalues=["value1", "value2", "value3"];
+        mPrompt(3, 'Prompt tittle', 'This is an example mPrompt', arrayparametersnames, arrayoriginalvalues, SetValueToVar);
+    }
+  </script>
+
+  <div class='centerbox'>
+      <div class='button' onclick='CallmPrompt()'>
+          mPrompt!
+      </div>
+  </div>
+</body>
+</html>

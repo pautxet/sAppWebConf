@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bloc Id="999">
+ <parentID>0</parentID>
+ <ProfilesDescriptions>
+ </ProfilesDescriptions>
+ <SequenceDescriptions>
+     <AllItems />
+ </SequenceDescriptions>
+ <BlocsReferences/>
+ <Connections>
+    <Connection>
+       <sourceId>999</sourceId>
+       <endId>999</endId>
+       <Condition>TRUE</Condition>
+    </Connection>
+ </Connections>
+ <PointsReferences />
+ <BlocName>BlocTemplate</BlocName>
+ <EnableSignal></EnableSignal>
+ <EnableSignalInverted>false</EnableSignalInverted>
+ <ExecutingSignal></ExecutingSignal>
+ <IsCyclic>false</IsCyclic>
+ <IsDeviceBloc>true</IsDeviceBloc>
+ <IsGUIBloc>true</IsGUIBloc>
+ <BlocAuthType>Unload</BlocAuthType>
+ <Description>Default description</Description>
+</Bloc>

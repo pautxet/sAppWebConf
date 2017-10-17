@@ -1,0 +1,89 @@
+/*
+GNU Liscense - Pau and Arnau
+
+usage:
+------------------------------------------
+  function SetValueToVar(valgiven){
+    object.propToSet=valgiven;
+  }
+  mPrompt(parametersQuantity, promptTitle, promptDescription, arrayparametersnames, originalValues, SetValueToVar);
+------------------------------------------
+parametersQuantity: how many parameters will the mPrompt ask for
+promptTitle: main title for the mPrompt
+promptDescription: description for the mPrompt
+arrayparametersnames: an array with the name of the parameters. If send empty (""), it will display 'parameter'
+originalValues: original values of the parameters, not array, all the values in a string, seperated by a space " ", if no values, send empty string ("")
+SetValueToVar: function declared to set the values to the variable. Puts the values in a string, separated by a space " "
+*/
+
+.backgroundpanel{
+    background: #eaeaea; /* Old browsers */
+    background: -moz-linear-gradient(top, rgba(250,250,250,0.6) 0%, rgba(90,90,90,0.7) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(250,250,250,0.6) 0%,rgba(90,90,90,0.7) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(250,250,250,0.6) 0%,rgba(90,90,90,0.7) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    width: 100%;
+    height:100%;
+    z-index: 921000;
+    top: 0px;
+    position: absolute;
+}
+.caixaPrompt{
+    width: 300px;
+    background: rgba(240,240,240,0.7);
+    border: 2px solid #606060;
+    border-radius: 7px;
+    margin-left: -150px;
+    left: 50%;
+    position: absolute;
+    z-index:922000;
+    top: 200px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    line-height: 250%;
+    box-shadow: 8px 8px 8px #5B5B5B;
+}
+.caixaPrompt input{
+    border-radius: 5px;
+    height: 25px;
+    background: rgba(250,250,250,0.8);
+
+}
+.caixaPrompt hr{
+    margin: 0px;
+    margin-bottom: 5px;
+    border: 1px solid #636363;
+}
+.caixaPrompt p{
+    margin:0px;
+    color: #5E5E5E;
+    line-height: 100%;
+    margin-bottom: 20px;
+}
+
+.Xclose {
+	position: absolute;
+	right: 15px;
+	cursor: default;
+	color: #2B2B2B;
+}
+.Xclose:hover{
+	color: #636363;
+}
+
+.submitbtn{
+    background: #4675CE;
+    color: #ffffff;
+    width: 60px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: bold;
+    text-align: center;
+    cursor: default;
+}
+.submitbtn:hover{
+    background: #6999E5;
+}

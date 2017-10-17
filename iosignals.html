@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+        <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1'>
+        <title>StampApp - I/O Signals</title>
+
+        <!-- reload control -->
+        <link rel='StyleSheet' type='text/css' href='StyleCSS/w3.css'>
+        <script src="jsLibraries/jquery.min.js"></script>
+        <script src="jsLibraries/xml2json.js"></script>
+        <script type="text/javascript" src="jsLibraries/loadxmldoc.js"></script>
+        <script src="jsLibraries/handlebars.v4.0.10.js"></script>
+        <script type="text/javascript" src='index_head.js'></script>  
+
+        <!-- rest of stuff -->
+        <link rel="shortcut icon" href="appImages/ROBOT.ico">
+        <link rel='StyleSheet' type='text/css' href='iosignals.css'>
+        <link rel='StyleSheet' type='text/css' href='estil.css'>
+        <link rel='StyleSheet' type='text/css' href='StyleCSS/w3.css'>
+
+        <script src="jsLibraries/json2xml.js"></script>
+
+        <!-- notificacions -->
+        <script src="jsLibraries/alertify.js"></script>
+        <link rel="stylesheet" href="jsLibraries/cssalertify/alertify.min.css" />
+        <link rel="stylesheet" href="jsLibraries/cssalertify/themes/default.min.css" />
+
+        <!-- shortcuts -->
+        <script src="jsLibraries/shortcut.js"></script>
+
+
+        <script src="jsLibraries/jqueryui.min.js"></script>
+
+
+        <!-- context menu library -->
+        <script src="jsLibraries/context.js"></script>
+        <link rel='StyleSheet' type='text/css' href='jsLibraries/context.standalone.css'>
+
+        <script src="jsLibraries/split.min.js"></script>
+        <script src="jsLibraries/swag.js"></script>
+
+
+        <script src='iosignalsfunctions.js'></script>
+    </head>
+    <body onload="OnLoadAppIOSignals()">
+
+
+        <div class='container'>
+            <div class='appheader'>
+                I/O Signals
+                <div onclick='OnMainButtonClick();'>
+                    <div class='own-mainButton'>MAIN</div>
+                </div>
+            </div>
+            <div class='mainbox' id='mainbox'>
+                <div id="leftColumnContainer">
+                    <div class='searchBox'><input id='tbSearch' class='tbSearch' onkeyup='OnKeyUpTBSearch()' placeholder='search...'/></div>
+                    <div class='leftColumn' id='leftColumn'></div>
+                </div>
+                <div id="screenFlexPendand" class='screenFlexPendand'></div>
+                <div id="right-column">
+                    <div id='ioPropertiesBox' class='ioPropertiesBox'></div>                
+                    <div ondrop="dropOnTrash(event)" ondragover="allowDrop(event)" class="trash" id="trash"><p><img id='trashicon' src='appImages/imgtrans.png'/><span class="translatable-text">IO_SIGNALS_TRASH</span></p></div>
+                    <div onclick='OnApplyBtnClick()' class='btnApply translatable-text'>IO_APPLY</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- modal window to check the StampApp version -->
+        <div id="newVersionDialog" class="w3-modal" > </div>
+
+    </body>
+</html>

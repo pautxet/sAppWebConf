@@ -1,0 +1,224 @@
+.own-textBox{
+    background: rgba(255, 255, 255, 0);
+    border: 0px solid #ffffff;
+    border-radius: 5px;
+	padding-left: 10px;
+	height: 30px;
+	/*width: 120px;*/
+	vertical-align: middle;
+	font-size: 14px;
+}
+.own-textBox:hover{
+    background: rgba(255, 255, 255, 0.6);
+}
+.own-textBox:focus{
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0px 0px 4px 0px rgba(0,85,255,1);
+}
+
+.own-textarea{
+    background: rgba(255, 255, 255, 0);
+    border: 0px solid #ffffff;
+    border-radius: 5px;
+	padding-left: 10px;
+    width: 100%;
+	/*height: 30px;*/
+	/*width: 120px;*/
+	vertical-align: middle;
+	font-size: 14px;
+}
+.own-textarea:hover{
+    background: rgba(255, 255, 255, 0.6);
+}
+.own-textarea:focus{
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0px 0px 4px 0px rgba(0,85,255,1);
+}
+
+.own-width30percent{
+    width: 30%;
+    margin-top: 0px;
+}
+
+.own-widthColumn{
+    width: 30%;
+}
+.own-cursorPointer{
+    cursor: pointer;
+}
+
+.own-blue{
+    background: #daeff6;
+}
+.own-green{
+    background: #d1f5d1;
+}
+.own-red{
+    background: #fbe1e1;
+}
+.own-orange{
+    background: #fedbb8;
+}
+
+
+.own-navbarFixed{
+    position: fixed;
+    top:0px;
+    background: #ffffff;
+    margin-left:-15px;
+    margin-right: -15px;
+}
+
+
+.own-trHeight{
+    height: 60px!important;
+}
+
+.own-2ndCol{
+    height: 60px!important;
+    overflow-y: scroll;
+}
+
+.own-select{
+    width: 150px;
+    display: inline-block;
+    margin-right: 10px;
+}
+.own-exportBtn{
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.own-inputFileDiv{
+	display: inline-block;
+}
+.own-inputFileDiv > input
+{
+    display: none;
+}
+.own-invisibleInput{
+    display: none!important;
+}
+
+.own-textLabelInput{
+    text-decoration: none!important;
+    font-weight: 400!important;
+    cursor: pointer;
+}
+
+.own-appheader{
+	background: #3A5F7C;
+	height: 40px;
+	text-align: center;
+	vertical-align: middle;
+	color: #ffffff;
+	font-size: 16px;
+	padding-top: 10px;
+}
+
+
+
+
+
+/* fileMenu */
+.helpmenuitem{
+	background-color: #486084;
+	color: #ffffff;
+	padding: 10px;
+	cursor: default;
+    width: 240px;
+}
+.helpmenuitem:hover{
+	background-color: #6DA0C6;
+}
+#savebutton{
+	background: url(../appImages/sprites1.png) -175px 0px;
+}
+#robotwhite{
+	background: url(../appImages/sprites1.png) -300px 0px;
+}
+#importicon{
+	background: url(../appImages/sprites1.png) -435px 0px;
+	/*margin-left: 5px;*/
+	width: 30px;
+}
+#exporticon{
+	background: url(../appImages/sprites1.png) -470px 0px;
+	/*margin-left: 5px;*/
+	width: 30px;
+}
+#fileMenu{
+	background: url(../appImages/sprites1.png) -100px 0px;
+}
+
+.own-blueDropdown{
+	background: #b6bbc2!important;
+}
+.own-textAlignLeft{
+	text-align: left;
+}
+.image-upload{
+	display: inline-block;
+}
+.image-upload > input
+{
+    display: none;
+}
+.own-left0{
+    left: 0px;
+}
+/* /fileMenu */
+
+
+.own-mainButton{
+    font-weight: bold;
+    margin-right: 10px!important;
+    cursor: pointer;
+}
+.own-marginLeft10px{
+    margin-left: 10px;
+}
+.own-marginTop10px{
+    margin-top: 10px;
+}
+
+#newVersionDialog {
+    z-index: 999999;
+}
+
+#newVersionDialog .w3-modal-content {
+    max-width: 350px;
+}
+
+#newVersionDialog footer {
+    padding: 5px;
+}
+
+#newVersionDialog footer .submitbutton {
+    float:right;
+    margin: 0px 5px;
+}
+
+.o_blue{
+    background: #3A5F7C;
+}
+.submitbutton{
+	margin-top: 20px;
+    height: 26px;
+    color: #ffffff;
+    background: #4E7DA6; /*url("ROBOTwhite.png") no-repeat left top;
+	background-size: 20px;
+	background-position: left 20px center;*/
+    border-radius: 3rem;
+    padding: 7px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+	vertical-align: middle;
+}
+.submitbutton:hover{
+	background: #6A9DC1;
+}
+.submitbutton:after {
+	width: 10px;
+}

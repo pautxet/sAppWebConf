@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Language Editor</title>
+
+        <!-- reload control -->
+        <link rel='stylesheet' href='../StyleCSS/w3.css'>
+        <script src="../jsLibraries/jquery.min.js"></script>
+        <script src="../jsLibraries/xml2json.js"></script>
+        <script src='../jsLibraries/loadxmldoc.js'></script>
+        <script type="text/javascript" src="../jsLibraries/handlebars.v4.0.10.js"></script>        
+        <script type="text/javascript" src='../index_head.js'></script>  
+
+        <!-- Bootstrap -->
+        <link href="bootstrap.css" rel="stylesheet">
+        <link href="own.css" rel="stylesheet">
+
+    </head>
+    <body onload='Main()'>
+        <div class='container'>
+            <div class='own-navbarFixed container'>
+                <div class='own-appheader'>
+                    <!-- fileMenu button -->
+                    <div class="w3-dropdown-hover own-textAlignLeft own-left0 pull-left">
+                        <img id="fileMenu" src="../appImages/imgtrans.png" style="width: 25px; height: 25px; display: inline; margin-left: 5px; left: 0px;" />
+                        <div class="w3-dropdown-content w3-border own-blueDropdown own-marginLeft">
+                            <div class='helpmenuitem' onclick='OnClickBtnMenu();' >
+                                <img id="robotwhite" class="" src="../appImages/imgtrans.png" /> MAIN
+                            </div>
+                            <div class='helpmenuitem' onclick="SaveLanguage();" title="">
+                                <img id="savebutton" class="" src="../appImages/imgtrans.png"  title="save the actual language to the robot"/>
+                                Save
+                            </div>
+                            <div class='helpmenuitem'>
+                                <label for="xmlfile_input" title="">
+                                    <label class='own-textLabelInput' for='importedFileAllLanguagesInput'>
+                                        <img id="importicon" class="" src="../appImages/imgtrans.png" />  Import lang to robot
+                                    </label>
+                                    <input class='own-invisibleInput' id='importedFileAllLanguagesInput' type='file' onchange='ImportAllLanguages(event)'/>
+                                </label>
+                                <div class="image-upload">
+                                    <input id="xmlfile_input" onchange="UploadXML()" type="file">
+                                </div>
+                            </div>
+                            <div onclick='ExportAllLanguages()' class='helpmenuitem' title="">
+                                <img id="exporticon" src="../appImages/imgtrans.png" />
+                                Export all languages
+                            </div>
+                            <div onclick='ExportCurrentLanguage()' class='helpmenuitem' title="">
+                                <img id="exporticon" src="../appImages/imgtrans.png" />
+                                Export current language
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /fileMenu button -->
+                    <div class='pull-left own-marginLeft10px' onclick="SaveLanguage();" title="">
+                        <img id="savebutton" class="" src="../appImages/imgtrans.png"  title="save the actual language to the robot"/>
+                    </div>
+                    <b>Language Editor - StampApp</b>
+                    <div onclick='OnClickBtnMenu()' class='pull-right own-mainButton'>
+                        MAIN
+                    </div>
+                </div>
+
+                <div class='pull-right own-marginTop10px'>
+                    <select onchange='OnChangeFileSelect(this.id)' class="form-control input-sm own-green own-select" id="fileSelect">
+                        <option value='FlexPendand' class='own-green'>FlexPendand</option>
+                        <option value='WebConfigurator' class='own-blue'>WebConfigurator</option>
+                    </select>
+                    <select onchange='OnChangeLangSelect(this.id)' class="form-control input-sm own-select" id="langSelect">
+                        <option>es</option>
+                    </select>
+                </div>
+                <table class="table table-hover">
+                    <thead class="thead-inverse">
+                        <tr>
+                            <th class='own-widthColumn'>
+                                <h3>
+                                    lang code <span onclick='OnClickSortByKey()' id='idSortKeyIcon' class="glyphicon glyphicon-sort-by-alphabet own-cursorPointer"></span>
+                                </h3>
+                            </th>
+                            <th class='own-widthColumn'>
+                                <h3>
+                                    English <span onclick='OnClickSortByEng()' id='idSortEngIcon' class="glyphicon glyphicon-sort-by-alphabet own-cursorPointer"></span>
+                                </h3>
+                            </th>
+                            <th class='own-widthColumn'>
+                                <h3 id='idLangR'>
+                                    Español <span onclick='OnClickSortByLangR()' id='idSortLangRIcon' class="glyphicon glyphicon-sort-by-alphabet own-cursorPointer"></span>
+                                </h3>
+                            </th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+            <br><br><br><br><br><br><br><br><br>
+            <table class="table table-hover">
+                <thead class="thead-inverse">
+                    <tr>
+                        <td class='own-widthColumn'>
+                        </td>
+                        <td class='own-widthColumn'>
+                        </td>
+                        <td class='own-widthColumn'>
+                        </td>
+                    </tr>
+                </thead>
+                <tbody id='tbody'>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="bootstrap.js"></script>
+
+        <script src="../jsLibraries/json2xml.js"></script>
+
+        <script src="../jsLibraries/alertify.js"></script>
+        <link rel="stylesheet" href="../jsLibraries/cssalertify/alertify.min.css" />
+        <link rel="stylesheet" href="../jsLibraries/cssalertify/themes/default.min.css" />
+
+        <script src="../jsLibraries/FileSaver.js"></script>
+
+        <script type="text/javascript" src="../jsLibraries/jszip.js"></script>
+        <script type="text/javascript" src="../jsLibraries/jszip.utils.js"></script>
+        <script src="index.js"></script>
+
+        <!-- modal window to check the StampApp version -->
+        <div id="newVersionDialog"></div>
+
+    </body>
+</html>

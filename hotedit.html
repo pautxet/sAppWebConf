@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+        <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1'>
+        <title>StampApp - Hot Edit</title>
+
+        <link rel="shortcut icon" href="appImages/ROBOT.ico">
+
+        <!-- reload control -->
+        <link rel='StyleSheet' type='text/css' href='StyleCSS/w3.css'>
+        <script src="jsLibraries/jquery.min.js"></script>
+        <script src="jsLibraries/xml2json.js"></script>
+        <script type="text/javascript" src="jsLibraries/loadxmldoc.js"></script> 
+        <script type="text/javascript" src="jsLibraries/handlebars.v4.0.10.js"></script>
+        <script type="text/javascript" src='index_head.js'></script>              
+
+        <link rel='StyleSheet' type='text/css' href='estil.css'>
+        <link rel='StyleSheet' type='text/css' href='hotedit.css'>
+        <link rel="stylesheet" href="jsLibraries/cssalertify/alertify.min.css" />
+        <link rel="stylesheet" href="jsLibraries/cssalertify/themes/default.min.css" />
+        <link rel='StyleSheet' type='text/css' href='jsLibraries/context.standalone.css'>
+        <link rel="stylesheet" href="jsLibraries/mPrompt.css" />
+
+        <script type="text/javascript" src="jsLibraries/json2xml.js"></script>
+
+        <!-- context menu library -->
+        <script type="text/javascript" src="jsLibraries/alertify.js"></script>
+        <script type="text/javascript" src="jsLibraries/shortcut.js"></script>
+
+        <!-- plumb -->
+        <script type="text/javascript" src="jsLibraries/jqueryui.min.js"></script>
+        <script type="text/javascript" src="jsLibraries/jquery.jsPlumb.1.5.0.min.js"></script>
+
+        <script type="text/javascript" src="jsLibraries/split.min.js"></script>
+        <script type="text/javascript" src="jsLibraries/plumbtriggsline.js"></script>
+        <script type="text/javascript" src="jsLibraries/Sortable.min.js"></script>
+        <script type="text/javascript" src="jsLibraries/context.js"></script>
+        <script type="text/javascript" src="jsLibraries/mPrompt.js"></script>
+        <script type="text/javascript" src="jsLibraries/swag.js"></script>
+        <script type="text/javascript" src="jsLibraries/FileSaver.js"></script>
+        <script type="text/javascript" src="jsLibraries/jszip.js"></script>
+        <script type="text/javascript" src="jsLibraries/jszip.utils.js"></script>
+
+        <script src='resources.js'></script>
+        <script src='hotedit.js'></script>
+    </head>
+    <body onload="OnLoadHotedit()">
+        <div class="sidebarfixed" id="sidebar">
+            <div class="maintitle">
+                <!-- fileMenu button -->
+                <div class="w3-dropdown-hover own-textAlignLeft">
+                    <img id="fileMenu" src="appImages/imgtrans.png" style="width: 25px; height: 25px; display: inline; margin-left: 5px; left: 0px;" />
+                    <span id="sidebar-title" class="translatable-text">HOTEDIT_ACTIONS_HOT_EDITION</span>
+                    <div class="w3-dropdown-content w3-border own-blueDropdown own-marginLeft">
+                        <div class='helpmenuitem' onclick='OnMainButtonClick();' >
+                            <img id="robotwhite" class="" src="appImages/imgtrans.png" />
+                            <span>MAIN</span>
+                        </div>
+                        <div class='helpmenuitem' onclick='OnImportReferenceButtonClick();' >
+                            <img id="importicon" class="" src="appImages/imgtrans.png" />
+                            <span class="translatable-text">HOTEDIT_IMPORT</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- /fileMenu button -->              
+                <img id="pinbuttontreeview" src="appImages/imgtrans.png" onclick="PinButtonHotEdit();" style="width: 25px; height: 25px; display: inline; position: absolute; right:20px;" />
+            </div>
+            <div id="PartListTable">
+                <table class="table table-hover">
+                    <thead class="thead-inverse">
+                        <tr>
+                            <th class='own-widthColumn'>
+                                <h3>IDs</h3>
+                            </th>
+                            <th class='own-widthColumn'>
+                                <h3 class="translatable-text">HOTEDIT_REFERENCE_NAMES</h3>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+                <div style='margin:auto;'> </div>
+            </div>
+        </div>
+        <div id="hotEditMainBlock" class="BlockWithPinnedSidebar">
+            <div class="maintitle">
+                <img id="savebutton" class="savebutton translatable-title" src="appImages/imgtrans.png" onclick="SaveHotEdit();"   title="HOTEDIT_SAVE_CHANGES"/>
+                <h3 id="content-title"></h3>
+            </div>
+            <div id="continguthtml">                
+                <div id="partPointsContainer"></div>
+                <div id="modulesColumn">
+                    <div id="modulesAccordion">
+                    </div>
+                </div>
+                <div id="PrePostTriggsPanel">
+                    <button id="PreSeq_btn" onclick="CollapsePanel(this.id)" class="panelBtnUnfolder"><b>PreSequential</b></button>
+                    <div id="PreSeq" ondrop="dropAction(event, this.id)" ondragover="PanelAllowDropAction(event, this.id)" class="w3-accordion-content w3-container own-borderradius-bottom own-gray w3-show"></div>
+                    <button id="PostSeq_btn" onclick="CollapsePanel(this.id)" class="panelBtnUnfolder"><b>PostSequential</b></button>
+                    <div id="PostSeq" ondrop="dropAction(event, this.id)" ondragover="PanelAllowDropAction(event, this.id)" class="w3-accordion-content w3-container own-borderradius-bottom own-gray w3-show"></div>	
+                    <button id="AddNewTriggBtn" onclick="AddNewTrigg()" class="panelBtnUnfolder"><b>+</b></button>
+                </div>
+            </div>
+        </div> 
+
+        <!-- definition of the Import Dialog -->
+        <div id="importDialog" class="w3-modal" >
+            <div class="w3-modal-content w3-animate-top"  >
+                <header class="w3-container o_blue">
+                    <span onclick="$('#importDialog').toggle();" class="w3-closebtn">&times;</span>
+                    <h2 style="color:#ffffff;"><span class='translatable-text'>HOTEDIT_IMPORT</span></h2>
+                </header>
+                <div class="w3-container">
+                    <form> 
+                        <div>
+                            <!--<input  id="importFileInput" type="file" accept=".zip" autofocus  onchange="importFileChanged(event);" > -->
+                            <div class="inputfile-box" >
+                                <input type="file" id="importFileInput"  accept=".zip" style="display:none;" class="inputfile" onchange='importFileChanged(event);'>
+                                <input type="text" id='file-box' onchange='onChangeFileBoxInput();' ondragover="fdragover(event);"  ondragenter='fdragenter(event);' ondrop='DragDrop(event);'>
+                                <button id="file-button" type="button" onclick="document.getElementById('importFileInput').click();"> Choose a file </button>   
+                            </div>
+
+
+                            <div id="inportOptionsContainer" style="display: none;">
+                                
+                                    
+                                <fieldset>
+                                    <legend class="translatable-text">HOTEDIT_IMPORT_SOURCE</legend>
+                                    <span class='label'>ID</span>
+                                    <span id="importedFileDataPartId"></span>
+                                    <br />
+                                    <span class='label translatable-text'>HOTEDIT_NAME</span>
+                                    <span  id="importedFileDataPartName"></span>
+                                </fieldset>
+                                <fieldset>
+                                    <legend class="translatable-text">HOTEDIT_IMPORT_TARGET</legend>
+                                    <span class='label translatable-text'>HOTEDIT_OVERWRITE</span>
+                                    <input type='checkbox' name='importOverwriteId' class='onoffswitch01-checkbox' onchange='onOverwriteChange(event);' id='importOverwriteId' />
+                                
+                                    <label class='onoffswitch01-label' for='importOverwriteId'>
+                                        <span class='onoffswitch01-inner'></span>
+                                        <span class='onoffswitch01-switch'></span>
+                                    </label>
+                                    <div id="importIdContainer">
+                                        <label class="label" for='importId'>ID</label>
+                                        <input id="importId" type="text" onchange="onChangeImportId(event);" />
+                                    </div>
+                                </fieldset>
+                                
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <footer class="w3-container w3-white">
+                    <button onclick="$('#importDialog').toggle();" type="button" class="submitbutton translatable-text">HOTEDIT_CANCEL</button>
+                    <button id="importFileSubmit" onclick="importReference(event)" type="button" class="submitbutton" disabled><span class="translatable-text">HOTEDIT_IMPORT</span></button>                    
+                </footer>
+            </div>
+        </div>
+
+        <!-- modal window to check the StampApp version -->
+        <div id="newVersionDialog" class="w3-modal" > </div>
+
+    </body>
+</html>

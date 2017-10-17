@@ -1,0 +1,394 @@
+#hotEditMainBlock {
+    background-color: #D9DBDE;
+    height: calc(100% - 20px);
+    position: absolute;
+    margin:0px 10px 10px 370px;
+    border-radius: 10px;
+    transition:margin .3s linear;
+    box-shadow: 0px 0px 35px -7px rgba(0,0,0,0.75);
+    animation-duration: 0.7s;
+    animation-iteration-count: 1;
+}
+
+.sidebar #sidebar-title
+{
+    display: none;
+    font-size: 18px;
+}
+
+.sidebar:hover #sidebar-title, .sidebarfixed #sidebar-title
+{
+    display: inherit;
+    font-size: 18px;
+}
+
+.sidebar #unpinbuttontreeview 
+{
+    display: none !important;
+    
+}
+
+.sidebar:hover #unpinbuttontreeview, .sidebarfixed #unpinbuttontreeview 
+{
+    display: inline !important;
+    right: 20px;
+}
+
+.BlockWithPinnedSidebar{
+    width: calc(100% - 420px);
+}
+
+.BlockWithUnpinnedSidebar{
+    width: calc(100% - 220px);
+    margin-left: 100px !important;
+}
+
+#unpinbuttontreeview {
+    cursor:pointer;
+}
+
+#continguthtml
+{
+    height: calc(100% - 55px);
+}
+
+#pinbuttontreeview 
+{
+    cursor: pointer;
+}
+
+#PartListTable 
+{
+    overflow-y: scroll;
+    height: calc(95% - 20px);
+}
+
+#PartListTable table
+{
+    width: 100%;
+    border: 1px solid white;
+    padding: 10px;
+    
+}
+
+#PartListTable thead 
+{
+    font-size: 1.2em;
+    color: black;
+    background-color: #BFC5CC;
+}
+
+#PartListTable thead h3
+{
+    margin: 0px;
+}
+
+#PartListTable tr.partReferenceItem
+{
+    font-size: 1.1em;
+    cursor: pointer;
+    
+    
+    color: #3A5374;
+    background-color: white;   
+}
+
+#PartListTable tr.partReferenceItem > td:first-child 
+{    
+    text-align: center;    
+}
+
+#PartListTable tr.partReferenceItem.selected
+{
+    color: white;
+    background-color: #3A5374;
+}
+
+
+#continguthtml
+{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: stretch;
+}
+
+#continguthtml > div:not(.gutter)
+{
+    background: #fff; 
+    overflow-y: scroll; 
+    padding: 10px; 
+    margin: 0px auto; 
+    border-radius: 5px;
+}
+
+#partPointsContainer 
+{
+    width: 15%;   
+    flex: 0 0 auto;
+}
+
+#partPointsContainer a.breadcrum
+{
+    font-size: 1.3em;
+    color: #0084B4;
+    margin-bottom: 25px;
+    display: inline-block;
+    font-weight: bold;
+}
+ 
+#partPointsContainer div.itemgui
+{
+    cursor: pointer;
+	width: 100%;
+    padding: 0px;
+    margin-left: -5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#partPointsContainer div.selected
+{
+    background-color: #96ACBA;
+    color: #ffffff;
+}
+
+#modulesColumn 
+{
+    width: 15%;
+    flex: 1 1 auto;
+}
+
+
+#modulesColumn > #modulesAccordion div
+{
+    cursor: pointer;
+}
+#modulesColumn .w3-accordion-content {
+	padding: 0px !important;
+}
+#modulesColumn .selecteditem {
+	overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#PrePostTriggsPanel 
+{
+    width: 64%;
+    flex: 1 1 auto;
+    vertical-align: top;
+}
+
+.contextMenuItem 
+{
+    width: 20px; 
+    height: 20px; 
+    display: inline; 
+    left:0px; 
+    margin-right:5px;   
+}
+
+#reloadIcon
+{
+    background: url(appImages/sprites1.png) -25px 0px;
+    width: 25px;
+    height: 25px;
+    vertical-align: middle;
+}
+
+.nonEditableActionItem
+{
+    color:red;
+}
+
+#PreSeq_btn,#PostSeq_btn,#AddNewTriggBtn
+{
+    cursor: pointer;
+}
+
+.shaking {
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+
+#content-title
+{
+    display: inline;
+    position: relative;
+    font-size: 18px;
+    color: white;
+    margin: 10px;
+    vertical-align: text-top;
+}
+
+#savebutton
+{
+    opacity: 0.4;
+    cursor: not-allowed;
+    right: inherit;
+    margin: 0px;
+    left: 10px;
+    position: relative;
+    vertical-align: middle;
+}
+
+#savebutton.changesPending 
+{
+    opacity: 1;
+    cursor: pointer;
+}
+
+.partReferenceItem, .SelectedActionItem, .triggerWithContextMenu
+{
+    cursor: pointer !important;
+}
+
+.gutter {
+    cursor: col-resize;
+    background-color: #eee;
+    background-repeat: no-repeat;
+    background-position: 50%;
+}
+
+.gutter.gutter-vertical {
+    background-image:  url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAFAQMAAABo7865AAAABlBMVEVHcEzMzMzyAv2sAAAAAXRSTlMAQObYZgAAABBJREFUeF5jOAMEEAIEEFwAn3kMwcB6I2AAAAAASUVORK5CYII=')
+}
+
+.gutter.gutter-horizontal {
+    background-image:  url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAeCAYAAADkftS9AAAAIklEQVQoU2M4c+bMfxAGAgYYmwGrIIiDjrELjpo5aiZeMwF+yNnOs5KSvgAAAABJRU5ErkJggg==')
+}
+
+.panelBtnOptions {
+    margin-left: -4px !important;
+    cursor: pointer;
+}
+
+.helpmenuitem > span{
+    font-size: 1.4em;
+}
+
+#importDialog > div.w3-modal-content {
+    max-width:400px; 
+    margin-top:200px;
+}
+#importDialog > div.w3-modal-content > div.w3-container{
+    padding: 10px !important;
+}
+
+#importDialog #inportOptionsContainer {
+    padding: 10px;
+    display: flex;
+}
+
+#importDialog #inportOptionsContainer fieldset{
+    width: 50%;
+}
+
+#importDialog #inportOptionsContainer fieldset:first-of-type{
+    background-color: #f1f1f1;
+}
+    
+    
+#importDialog #inportOptionsContainer .label{
+    float: left;
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+#importDialog #inportOptionsContainer .onoffswitch01-label{
+    max-width: 40px;
+    position: relative;
+}
+
+#importDialog #inportOptionsContainer input[type=text] {
+    border: 1px solid black;
+    background-color:white;
+}
+
+
+#importDialog #inportOptionsContainer #importId {
+    width: 40px;
+}
+
+#importDialog #inportOptionsContainer input[disabled] {
+    background-color:#dbdbdb;
+}
+
+#importDialog footer button {
+    float: right;
+    margin: 5%;
+}
+
+#importDialog footer button[disabled] {
+    cursor: not-allowed;
+    opacity: 0.4;
+}
+
+#importDialog footer button > span{
+    padding: 2px;
+}
+
+
+#newVersionDialog .w3-modal-content {
+    max-width: 350px;
+}
+
+#newVersionDialog footer {
+    padding: 5px;
+}
+
+#newVersionDialog footer .submitbutton {
+    float:right;
+    margin: 0px 5px;
+}
+
+.inputfile-box {
+  position: relative;
+}
+
+.inputfile {
+  display: none;
+}
+
+.container {
+  display: inline-block;
+  width: 100%;
+}
+
+#file-box, .file-box {
+  border: 1px solid gray!important;
+  padding: 5px 0px 5px 5px;
+  box-sizing: border-box;
+  text-align: right;
+  text-overflow: ellipsis;
+  width:70%;
+}
+
+.file-button {
+  display: inline;
+  background: blue;
+  color: blue;
+  padding: 5px;
+  position: absolute;
+  border: 1px solid;
+}

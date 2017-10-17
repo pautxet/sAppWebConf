@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BlocAssembly xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <AllBlocs>
+       <Bloc></Bloc>
+   </AllBlocs>
+   <AllPoints>
+   </AllPoints>
+   <AssemblyIDs>
+      <int>999</int>
+   </AssemblyIDs>
+   <ChildrenBlocsIds>
+      <int>999</int>
+   </ChildrenBlocsIds>
+</BlocAssembly>

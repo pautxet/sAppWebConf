@@ -1,0 +1,221 @@
+<LanguageManager>
+    <ItemsList>
+        <Translation Key="I_BLOCKS_TOOLKIT" Value="Block's Toolkit"/>
+        <Translation Key="I_COMMON_BLOCKS" Value="Common Blocks"/>
+        <Translation Key="I_FLEXPENDAND_CUSTOM_IO" Value="FlexPendand Custom I/O"/>
+        <Translation Key="I_LANGUAGE_EDITOR" Value="Language Editor"/>
+        <Translation Key="I_USER_MANUAL" Value="User Manual"/>
+        <Translation Key="I_SETTINGS" Value="Settings"/>
+        <Translation Key="I_HOT_EDIT" Value="Reference Hot Edit"/>
+        <Translation Key="MENU_BTN_ACTIONS" Value="ACTIONS"/>
+        <Translation Key="MENU_BTN_SEQUENCE" Value="SEQUENCE"/>
+        <Translation Key="MENU_BTN_GUI" Value="GUI"/>
+        <Translation Key="MENU_BTN_MAIN" Value="MAIN"/>
+        <Translation Key="BTN_MENU" Value="Menu"/>
+        <Translation Key="LBL_PROPERTIES" Value="Current Bloc Properties"/>
+        <Translation Key="LBL_PRESECUENTIAL_ACTIONS" Value="PreSequential Actions"/>
+        <Translation Key="LBL_POSTSECUENTIAL_ACTIONS" Value="PostSequential Actions"/>
+        <Translation Key="PROP_LBL_ID" Value="Id"/>
+        <Translation Key="PROP_LBL_DESCRIPTION" Value="Description"/>
+        <Translation Key="PROP_LBL_BLOCNAME" Value="BlockName"/>
+        <Translation Key="PROP_LBL_ENABLESIGNAL" Value="EnableSignal"/>
+        <Translation Key="PROP_LBL_EXECUTINGSIGNAL" Value="ExecutingSignal"/>
+        <Translation Key="PROP_LBL_BLOCAUTHTYPE" Value="BlockMapping"/>
+        <Translation Key="PROP_LBL_ISCYCLIC" Value="IsCyclic"/>
+        <Translation Key="PROP_LBL_ISDEVICEBLOC" Value="IsDeviceBlock"/>
+        <Translation Key="PROP_LBL_ISGUIBLOC" Value="IsGUIBlock"/>
+        <Translation Key="CNTXT_BLOC_ACTIONS" Value="ACTIONS"/>
+        <Translation Key="CNTXT_BLOC_COPY" Value="Copy Block"/>
+        <Translation Key="CNTXT_BLOC_PASTE" Value="Paste Block"/>
+        <Translation Key="CNTXT_BLOC_DELETE" Value="Delete Block"/>
+        <Translation Key="CNTXT_POINT_ACTIONS" Value="ACTIONS"/>
+        <Translation Key="CNTXT_POINT_RENAME" Value="Rename"/>
+        <Translation Key="CNTXT_POINT_DELETE" Value="Delete"/>
+        <Translation Key="SWITCH_EDITION" Value="EDITION"/>
+        <Translation Key="SWITCH_CONNECTION" Value="CONNECTION"/>
+        <Translation Key="SWITCH_INFO" Value="INFO"/>
+        <Translation Key="SWITCH_NO_INFO" Value="NO INFO"/>
+        <Translation Key="SWITCH_TRIGGER_UNIT_MS" Value="MS"/>
+        <Translation Key="SWITCH_TRIGGER_UNIT_MM" Value="mm"/>
+        <Translation Key="A_MODULES" Value="Modules"/>
+        <Translation Key="A_ACTIONS" Value=""/>
+        <Translation Key="A_SELECTED_ACTIONS" Value="Selected Actions"/>
+        <Translation Key="TXT_PRESEQ_TAB" Value="The actions that will execute before the position"/>
+        <Translation Key="TXT_POSTSEQ_TAB" Value="The actions that will execute after the position"/>
+        <Translation Key="TXT_DESCRIPTION_EDITION" Value="Mode Edition "/>
+        <Translation Key="TXT_DESCRIPTION_CONNECTION" Value="Mode Connection "/>
+        <Translation Key="TXT_DESCRIPTION_INFO" Value="Mode Info "/>
+        <Translation Key="TXT_TRIGGER_TAB" Value="Trigger tab"/>
+        <Translation Key="PPUP_RENAME" Value="Please, to rename this block, enter the new BlockName"/>
+        <Translation Key="PPUP_NEW_POINT" Value="Please enter the point name"/>
+        <Translation Key="PPUP_CONNECTION_EXIST" Value="Connection already exist"/>
+        <Translation Key="PPUP_ONLY_ONE_CONNECTION_TO_FIN" Value="If the element goes to another element, can't go to the end"/>
+        <Translation Key="PPUP_ONLY_ONE_CONNECTION__FROM_P_TO_P" Value="Only one connection from point to point"/>
+        <Translation Key="PPUP_SOURCE_P_ALREADY_GOES_TO_FIN" Value="Source element already goes to Fin."/>
+        <Translation Key="PPUP_SAVED" Value="Saved correctly"/>
+        <Translation Key="PPUP_ALREADY_SAVED" Value="Actual configuration already saved"/>
+        <Translation Key="PPUP_INSERT_POINT_NAME" Value="Please, insert a Point name"/>
+        <Translation Key="PPUP_ONLY_5_ACTIONBLOCS_INSIDE_HOOK" Value="only can 5 ActionBlocks inside a Hook"/>
+        <Translation Key="PPUP_CHARGED" Value="Charged"/>
+        <Translation Key="PPUP_MAX_TRIGGS" Value="max of triggs for each point is 8"/>
+        <Translation Key="PPUP_MAX_ACTIONBLOCS" Value="Only can 5 ActionBlocks inside a Hook"/>
+        <Translation Key="PPUP_ACTION_ADDED" Value="Action added to the hook"/>
+        <Translation Key="PPUP_REMOVED" Value="Removed"/>
+        <Translation Key="PPUP_ERROR_NAMING_GUI_POINT" Value="Can't put an empty name, or more than 3 characters"/>
+        <Translation Key="PPUP_IMAGE_ADDED_TO_SERVER" Value="image added to server"/>
+        <Translation Key="PPUP_NO_FILE_SELECTED" Value="No file selected"/>
+        <Translation Key="PPUP_INFO_MODE" Value="Changed to Info mode"/>
+        <Translation Key="PPUP_NO_INFO_MODE" Value="Changed to No Info mode"/>
+        <Translation Key="PPUP_EDITION_MODE" Value="Changed to Edition mode"/>
+        <Translation Key="PPUP_NO_EDITION_MODE" Value="Changed to Connection mode"/>
+        <Translation Key="PPUP_NO_CONNECTION_MODE" Value="Changed to NO Connection mode"/>
+        <Translation Key="PPUP_IMAGE_CHANGED" Value="Image changed correctly"/>
+        <Translation Key="PPUP_IMAGE_DELETED" Value="Image deleted successfully"/>
+        <Translation Key="PPUP_PROF_DESCR_DELETED" Value="Profile Description deleted successfully"/>
+        <Translation Key="PPUP_PROF_DESCR_ADDED" Value="Profile Description added successfully"/>
+        <Translation Key="PPUP_IMAGE_ADDED" Value="Image added to profile description"/>
+        <Translation Key="PPUP_POINT_ADDED_PROF_DESCR" Value="Point added to the profile description"/>
+        <Translation Key="PPUP_COPY_BLOC" Value="Block copied"/>
+        <Translation Key="PPUP_PASTE_BLOC" Value="Block pasted"/>
+        <Translation Key="PPUP_ID_COPIED" Value="Id copied: "/>
+        <Translation Key="PPUP_POINT_PASTED" Value="Point Pasted"/>
+        <Translation Key="PPUP_NEW_BLOC_CREATED" Value="New block created"/>
+        <Translation Key="PPUP_NEW_POINT_ADDED" Value="New point added to block"/>
+        <Translation Key="PPUP_ITEM_RENAMED" Value="Item renamed correctly"/>
+        <Translation Key="PPUP_GUI_POINT_RENAMED" Value="Gui point renamed"/>
+        <Translation Key="PPUP_NEW_TRIGGER" Value="New trigger added to point"/>
+        <Translation Key="PPUP_CONNECTION_CREATED" Value="Connection created correcctly"/>
+        <Translation Key="PPUP_OPERATION_CANCELED" Value="Operation canceled"/>
+        <Translation Key="PPUP_ARE_YOU_SURE" Value="Are you sure?"/>
+        <Translation Key="PPUP_ARE_YOU_SURE_TO_DELETE_THE" Value="Are you sure to delete the "/>
+        <Translation Key="PPUP_CHANGING_TO_NO_GUI_CONFIRMATION" Value="Changing to no-gui will remove the gui of this block"/>
+        <Translation Key="PPUP_GUI_BLOC_TRUE" Value="GUI Block enabled"/>
+        <Translation Key="PPUP_SELECT_A_BLOC" Value="Select a Block"/>
+        <Translation Key="PPUP_ENTER_VALUES_ACTION_PARAM" Value="Enter the values of the action parameter, separated by a space. Number of parameters to enter: "/>
+        <Translation Key="PPUP_NOT_AVAILABLE_YET" Value="Not available yet"/>
+        <Translation Key="PPUP_ACTIONS_PANELS_FOLDED" Value="Actions panels folded"/>
+        <Translation Key="PPUP_ACTIONS_PANELS_UNFOLDED" Value="Actions panels unfolded"/>
+        <Translation Key="PPUP_SAVING" Value="Saving"/>
+        <Translation Key="PPUP_ENTER_FILENAME" Value="Enter filename"/>
+        <Translation Key="PPUP_SAVED_CORRECTLY" Value="Saved correctly"/>
+        <Translation Key="PPUP_EXIT_WITHOUT_SAVE" Value="Exit without save?"/>
+        <Translation Key="PPUP_RENAME_POINT" Value="Rename Point"/>
+        <Translation Key="PPUP_SELECT_POINT_TO_SHOW_ACTIONS_PANEL" Value="Select Point to show actions panel"/>
+        <Translation Key="PPUP_TRIGER_RENAMED" Value="Trigger Renamed"/>
+        <Translation Key="PPUP_RENAME_CANCELLED" Value="Rename canceled"/>
+        <Translation Key="GUI_IMAGE_DELETED_FROM_ROBOT" Value="image deleted from robot"/>
+        <Translation Key="GUI_NO_GUI_BLOCK" Value="no GUI Block"/>
+        <Translation Key="GUI_ENTER_3_LETTERS_NAME" Value="enter the 3 letters name for the point"/>
+        <Translation Key="GUI_ENTER_IMAGE_NAME" Value="Enter image name"/>
+        <Translation Key="GUI_FILENAME_ALREADY_TAKEN" Value="Filename already taken"/>
+        <Translation Key="GUI_PREVIEW_IMAGES_FROM_ROBOT" Value="Preview images from robot"/>
+        <Translation Key="GUI_DOWNLOADING_IMAGE_FROM_ROBOT" Value="Downloading image from robot"/>
+        <Translation Key="GUI_DELETED" Value="Deleted"/>
+        <Translation Key="SEQUENCE_POINT_PROPERTIES" Value="Point Properties"/>
+        <Translation Key="SEQUENCE_ALIAS" Value="Alias"/>
+        <Translation Key="SEQUENCE_ALLOW_AUXPOINTS" Value="Allow AuxPoints"/>
+        <Translation Key="ACTIONS_EXISTING_POINTS_INSIDE_BLOCK" Value="existing points inside block"/>
+        <Translation Key="ACTIONS_SELECT_A_BLOCK" Value="select a Block"/>
+        <Translation Key="ACTIONS_NO_POINT_INSIDE" Value="no point inside"/>
+        <Translation Key="ACTIONS_MAX_5_ACTIONS" Value="max 5 actions"/>
+        <Translation Key="ACTIONS_CANT_REPEAT_ACTION" Value="can't repeat action"/>
+        <Translation Key="ACTIONS_MAX_8_TRIGGS" Value="max 8 triggs"/>
+        <Translation Key="ACTIONS_NO_EXISTING_POINTS" Value="no existing points"/>
+        <Translation Key="ACTIONS_NO_PARAMETERS_IN_ACTION" Value="no parameters in action"/>
+        <Translation Key="ACTIONS_DEFAULTENABLED_SET_TO" Value="DefaultEnabled set to: "/>
+        <Translation Key="ACTIONS_ENTER_TRIGG_VALUE" Value="Enter trigg value"/>
+        <Translation Key="ACTIONS_OPERATION_CANCELED_OR_CONTENT_UNAPROPIATED" Value="Operation canceled, or content unapropiated"/>
+        <Translation Key="ACTIONS_RENAME_TRIGG" Value="Rename Trigg"/>
+        <Translation Key="ACTIONS_FROM" Value="from"/>
+        <Translation Key="GENERAL_DELETED" Value="deleted"/>
+        <Translation Key="GENERAL_SAVING" Value="Saving"/>
+        <Translation Key="GENERAL_DELETE_BLOCK" Value="delete Block"/>
+        <Translation Key="GENERAL_NO_BLOCK_COPIED" Value="no Block copied"/>
+        <Translation Key="GENERAL_DELETE_POINT" Value="delete Point"/>
+        <Translation Key="SHRT_MAIN_CONTROLS" Value="Main Controls"/>
+        <Translation Key="SHRT_CHANGE_TO_ACTIONS" Value="Change to Actions tab"/>
+        <Translation Key="SHRT_CHANGE_TO_SEQUENCE" Value="Change to Sequence tab"/>
+        <Translation Key="SHRT_CHANGE_TO_GUI" Value="Change to GUI tab"/>
+        <Translation Key="SHRT_CHANGE_MODE_EDITION_CONNECTION" Value="Change mode Connection - Edition"/>
+        <Translation Key="SHRT_ADD_NEW_BLOCK" Value="Add new Block"/>
+        <Translation Key="SHRT_ADD_NEW_POINT" Value="Add new Point"/>
+        <Translation Key="SHRT_FOLD_UNFOLD" Value="Fold/Unfold in Actions tab"/>
+        <Translation Key="SHRT_PASTE_ITEMS" Value="Paste item"/>
+        <Translation Key="IO_DATA_CHARGED_FROM_ROBOT" Value="Data charged from robot"/>
+        <Translation Key="IO_EXIT_WITHOUT_APPLY" Value="Exit without apply"/>
+        <Translation Key="IO_ARE_YOU_SURE" Value="Are you sure?"/>
+        <Translation Key="IO_TITLE_BUTTON_PROPERTIES" Value="Button properties"/>
+        <Translation Key="IO_TITLE_LED_PROPERTIES" Value="Led properties"/>
+        <Translation Key="IO_TEXT" Value="Text:"/>
+        <Translation Key="IO_IS_SWITCH_BTN" Value="Is switch btn:"/>
+        <Translation Key="IO_SIGNAL_ASSIGNED" Value="Signal assigned:"/>
+        <Translation Key="IO_COLOR_ON" Value="ColorOn:"/>
+        <Translation Key="IO_COLOR_OFF" Value="ColorOff:"/>
+        <Translation Key="IO_APPLY" Value="Apply"/>
+        <Translation Key="IO_CHANGES_APPLIED" Value="Changes applied"/>
+        <Translation Key="S_EXPORT_PACKAGE_CONFIGURATION" Value="Export Package Configuration"/>
+        <Translation Key="S_EXPORT_PACKAGE" Value="Export Package"/>
+        <Translation Key="S_IMPORT_PACKAGE_CONFIGURATION" Value="Import Package Configuration"/>
+        <Translation Key="S_IMPORT_PACKAGE" Value="Import Package"/>
+        <Translation Key="GENERAL_DELETE_TRIGG_SUCCESS" Value="Trigger deleted successfully"/>
+        <Translation Key="GENERAL_CANNOT_DELETE_TRIGG" Value="Trigg cannot be deleted"/>
+        <Translation Key="HOTEDIT_UNSAVED_CHANGES" Value="There are unsaved changes."/>
+        <Translation Key="HOTEDIT_SAVE_CHANGES" Value="Save changes."/>
+        <Translation Key="HOTEDIT_SAVED_SUCCESS" Value="Changes saved succesfully."/>
+        <Translation Key="HOTEDIT_SAVE_ERROR" Value="Error saving."/>
+        <Translation Key="HOTEDIT_UPDATE_PARTS_LOADED" Value="Loaded Update Parts Data."/>
+        <Translation Key="HOTEDIT_PARTS_LOADED" Value="Loaded Parts Data."/>
+        <Translation Key="HOTEDIT_PARTS_LOAD_ERROR" Value="Error loaded Parts Data."/>
+        <Translation Key="HOTEDIT_UPDATE_PARTS_DELETED" Value="Update Parts Data deleted susccesfully."/>
+        <Translation Key="HOTEDIT_UPDATE_PARTS_DELETE_ERROR" Value="Error deleting Update Parts Data."/>
+        <Translation Key="HOTEDIT_RESET_MODIFICATIONS" Value="Reset modifications"/>
+        <Translation Key="HOTEDIT_EDIT_PARAMETERS" Value="Edit parameters"/>
+        <Translation Key="HOTEDIT_DELETE_ACTION" Value="Delete Action"/>
+        <Translation Key="HOTEDIT_REFERENCE_OPTIONS" Value="Reference Options"/>
+        <Translation Key="HOTEDIT_ACTION_OPTIONS" Value="Action Options"/>
+        <Translation Key="HOTEDIT_TRIGGER_OPTIONS" Value="Trigger Options"/>
+        <Translation Key="HOTEDIT_RENAME_TRIGGER" Value="Rename Trigger"/>
+        <Translation Key="HOTEDIT_DELETE_CURRENT_TRIGGER" Value="Delete Current Trigger"/>
+        <Translation Key="HOTEDIT_ACTIONS_HOT_EDITION" Value="Actions Hot Edition"/>
+        <Translation Key="HOTEDIT_REFERENCE_NAMES" Value="Reference Names"/>
+        <Translation Key="MODIFIED_WITH_EXTERN_FRAME" Value="Modified With Extern Frame"/>
+        <Translation Key="IO_SIGNALS_LED_PROPERTIES" Value="Led Properties"/>
+        <Translation Key="IO_SIGNALS_BUTTON_PROPERTIES" Value="Button Properties"/>
+        <Translation Key="IO_SIGNALS_GREY" Value="Grey"/>
+        <Translation Key="IO_SIGNALS_RED" Value="Red"/>
+        <Translation Key="IO_SIGNALS_ORANGE" Value="Orange"/>
+        <Translation Key="IO_SIGNALS_GREEN" Value="Green"/>
+        <Translation Key="IO_SIGNALS_ASSIGNED_SIGNAL" Value="Assigned signal"/>
+        <Translation Key="IO_SIGNALS_LABEL" Value="Text"/>
+        <Translation Key="IO_SIGNALS_IS_SWITCH" Value="Is switch button"/>
+        <Translation Key="IO_SIGNALS_COLOR_ON" Value="ColorOn"/>
+        <Translation Key="IO_SIGNALS_COLOR_OFF" Value="ColorOff"/>
+        <Translation Key="IO_SIGNALS_DOUBLE_CLICK_EDIT" Value="double click to edit"/>
+        <Translation Key="IO_SIGNALS_REMOVE_SIGNAL" Value="Remove assigned signal"/>
+        <Translation Key="IO_SIGNALS_DISABLE_TAB" Value="Disable tab"/>
+        <Translation Key="IO_SIGNALS_TRASH" Value="Discard signals by dragging them here"/>
+        <Translation Key="IO_SIGNALS_CHARACTERS_REMOVED" Value="Special characters quotes, ampersand, greater and lesser than..) have been removed!"/>
+        <Translation Key="S_LANGUAGE_SELECTED" Value="Language selected"/>
+        <Translation Key="HOTEDIT_EXPORT_REFERENCE" Value="Export reference"/>
+        <Translation Key="HOTEDIT_SELECT_REFERENCE" Value="Select a reference"/>
+        <Translation Key="HOTEDIT_EXPORT_REFERENCE_SUCCESS" Value="Reference exported succesfully"/>
+        <Translation Key="HOTEDIT_EXPORT_REFERENCE_ERROR" Value="Error exportng reference"/>
+        <Translation Key="HOTEDIT_IMPORT" Value="Import"/>
+        <Translation Key="HOTEDIT_CANCEL" Value="Cancel"/>
+        <Translation Key="HOTEDIT_IMPORT_SUCCESS" Value="Import finished succesfully"/>
+        <Translation Key="HOTEDIT_IMPORT_ERROR" Value="Error importing"/>
+        <Translation Key="HOTEDIT_OVERWRITE" Value="Overwrite"/>
+        <Translation Key="HOTEDIT_IMPORT_INVALID_ID" Value="Invalid id"/>
+        <Translation Key="HOTEDIT_IMPORT_USED_ID" Value="Id already in use"/>
+        <Translation Key="NEW_VERSION" Value="New version"/>
+        <Translation Key="RELOAD" Value="Reload"/>
+		<Translation Key="HOTEDIT_RENAME" Value="Rename"/>
+		<Translation Key="HOTEDIT_ERROR" Value="Error"/>
+		<Translation Key="HOTEDIT_CANCELLED_PART_LOADED" Value="Operation cancelled: part is currently loaded on robot."/>
+		<Translation Key="HOTEDIT_NAME" Value="Name"/>
+		<Translation Key="HOTEDIT_IMPORT_SOURCE" Value="Source"/>
+		<Translation Key="HOTEDIT_IMPORT_TARGET" Value="Target"/>
+    </ItemsList>
+    <Language/>
+    <LanguageCode/>
+</LanguageManager>

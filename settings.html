@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+        <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1'>
+        <title>StampApp - Settings</title>
+
+        <link rel="shortcut icon" href="appImages/ROBOT.ico">
+        <link rel='StyleSheet' type='text/css' href='iosignals.css'>
+        <link rel='StyleSheet' type='text/css' href='estil.css'>
+        <link rel="stylesheet" href="settings.css" />
+        <link rel='StyleSheet' type='text/css' href='StyleCSS/w3.css'>
+
+
+        <!-- reload control -->
+        <script src="jsLibraries/jquery.min.js"></script>
+        <script src="jsLibraries/xml2json.js"></script>
+        <script src="jsLibraries/loadxmldoc.js"></script>
+        <script src="jsLibraries/handlebars.v4.0.10.js"></script>
+        <script type="text/javascript" src="jsLibraries/swag.js"></script>
+        <script type="text/javascript" src='index_head.js'></script>  
+        <script type="text/javascript" src='settingsfunctions.js'></script>
+
+        <!-- rest of javascripts needed-->
+        <script src="jsLibraries/json2xml.js"></script>
+
+        <!-- notificacions -->
+        <link rel="stylesheet" href="jsLibraries/cssalertify/alertify.min.css" />
+        <link rel="stylesheet" href="jsLibraries/cssalertify/themes/default.min.css" />
+        <script type="text/javascript" src="jsLibraries/alertify.js"></script>
+
+        <!-- shortcuts -->
+        <script type="text/javascript" src="jsLibraries/shortcut.js"></script>
+
+        <!-- filesaver -->
+        <script type="text/javascript" src="jsLibraries/FileSaver.js"></script>
+
+        <script type="text/javascript" src="jsLibraries/jszip.js"></script>
+        <script type="text/javascript" src="jsLibraries/jszip.utils.js"></script>
+
+        <!-- notificacions -->
+        <script src="jsLibraries/alertify.js"></script>
+        <link rel="stylesheet" href="jsLibraries/cssalertify/alertify.css" />
+        <link rel="stylesheet" href="jsLibraries/cssalertify/themes/default.min.css" />
+
+        <script src='languageEditor/index.js'></script>
+        <script src='settingsfunctions.js'></script>
+        <script src="jsLibraries/loadxmldoc.js"></script>
+        <script src="jsLibraries/json2xml.js"></script>
+        <link rel="stylesheet" href="settings.css" />
+        <link rel='StyleSheet' type='text/css' href='StyleCSS/w3.css'>
+
+        <!-- plumb -->
+        <!--<script type="text/javascript" src="jsLibraries/jqueryui.min.js"></script> -->
+        <!--<script type="text/javascript" src="jsLibraries/jquery.jsPlumb.1.5.0.min.js"></script>-->
+        <script type="text/javascript" src="jsLibraries/jquery.binarytransport.js"></script>
+
+
+    </head>
+    <body style="max-width:98%; max-height:98%; margin:auto; font-size:100%" onload="OnLoadSettings();">
+        <div id='disablingDiv' ></div>
+        <div class='container' style="max-width:98%; max-height:98%; margin:auto; font-size:1.3em">
+            <div class='appheader' style="max-width:98%; max-height:98%; margin:auto;">
+                <span id='I_SETTINGS'>Settings </span>
+                <div  id="mainButton" onclick='OnMainButtonClick();' class='own-mainButton'>MAIN</div>
+            </div>
+            <div class="languagebox" style="max-width:98%; max-height:98%; margin:auto;">
+                <div id="languagebox" style='font-size:1.1em;'></div>
+            </div>
+            <br>
+            <div id="configimport" class="languagebox">
+                <div class="w3-accordion">
+                    <div onclick="w3Dropdown('dropdown1'); onDropDownExport();" class="s-button">                         
+                        <img id="exporticon" class="s-imgbutton importIcon" src="appImages/imgtrans.png" />
+                        <span id="S_EXPORT_PACKAGE_CONFIGURATION"></span>
+                    </div>
+                    <div id="dropdown1" class="w3-accordion-content w3-container w3-light-grey" style='padding:4%'>
+                        <input id="chkExportAssembly" class="w3-check" type="checkbox" checked="checked">
+                        <label class="w3-validate">Assembly</label>
+                        <br>
+                        <input id="chkExportCommon" class="w3-check" type="checkbox" checked="checked">
+                        <label class="w3-validate">Commons</label>
+                        <br>
+                        <input id="chkExportModules" class="w3-check" type="checkbox" checked="checked">
+                        <label class="w3-validate">Action Modules</label>
+                        <br>
+
+                        <input id="chkExportIOSignals" class="w3-check" type="checkbox" checked="checked">
+                        <label class="w3-validate">I/O Signals</label>
+                        <br>
+
+                        <div id="divExportLanguages"></div>
+                        <div onclick='onBtnExportPackage()' class='s-button o-pullright'>
+                            <span id='S_EXPORT_PACKAGE'></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div  class="languagebox">
+                <div class='s-button'>
+                    <label for="zipfile_input" title="select an xml file to import">
+                        <img id="importicon" class="s-imgbutton importIcon" alt="icon for import" src="appImages/imgtrans.png" />
+                        <span style='padding-left:6%; max-width:25px;margin-top: -15px;' id="S_IMPORT_PACKAGE_CONFIGURATION"></span>
+                    </label>
+                    <div class="image-upload">
+                        <input id="zipfile_input" onchange="OnBtnImportPackageConfiguration(event)" type="file">
+                    </div>
+                </div>
+                <div id='idPackageManagerContentImport'></div>
+            </div>
+        </div>
+
+        <!-- modal window to check the StampApp version -->
+        <div id="newVersionDialog"  class="w3-modal"> </div>
+
+
+    </body>
+</html>

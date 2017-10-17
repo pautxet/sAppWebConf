@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+        <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1' />
+
+        <title>StampApp - Login</title>
+
+        <!-- reload control -->     
+        <link rel='StyleSheet' type='text/css' href='StyleCSS/w3.css'>
+        <script src="jsLibraries/jquery.min.js"></script>
+        <script src="jsLibraries/xml2json.js"></script>
+        <script src='jsLibraries/loadxmldoc.js'></script>
+        <script src="jsLibraries/handlebars.v4.0.10.js"></script>
+        <script type="text/javascript" src='index_head.js'></script>  
+
+        <link rel="shortcut icon" href="appImages/ROBOT.ico">
+        <link rel='StyleSheet' type='text/css' href='loginbox.css'>
+        <link rel='StyleSheet' type='text/css' href='estil.css'>
+
+        <!-- context menu library -->
+        <script src="jsLibraries/context.js"></script>
+        <link rel='StyleSheet' type='text/css' href='jsLibraries/context.standalone.css'>
+
+        <script src="jsLibraries/json2xml.js"></script>
+
+        <!-- notificacions -->
+        <script src="jsLibraries/alertify.js"></script>
+        <link rel="stylesheet" href="jsLibraries/cssalertify/alertify.min.css" />
+        <link rel="stylesheet" href="jsLibraries/cssalertify/themes/default.min.css" />
+
+        <!-- shortcuts -->
+        <script src="jsLibraries/shortcut.js"></script>
+
+        <script src='loginfunctions.js'></script>
+
+        <!-- plumb -->
+        <script src="jsLibraries/jqueryui.min.js"></script>
+        <script src="jsLibraries/jquery.jsPlumb.1.5.0.min.js"></script>
+
+        <!-- prompt with multiple parameters library -->
+        <script src="jsLibraries/mPrompt.js"></script>
+        <link rel="stylesheet" href="jsLibraries/mPrompt.css" />
+
+    </head>
+
+    <body onload='OnLoadAppLogin()'>
+        <div class='loginbox' id='loginbox'>
+            <img src='appImages/abblogo.png' class='imagelogoABB'/>
+            <div class='o-title'>
+                ConfiguratorApp
+            </div>
+            <div class='o-subtitle'>
+                -StampApp
+            </div>
+            <br><br>
+            <div class='submitbutton' id="assemblyButton" onclick='OnConfigurator();'><img id='robotwhiteicon' src='appImages/imgtrans.png' class='imgsubmitbutton'/><span class='translatable-text'>I_BLOCKS_TOOLKIT</span></div>
+            <div class='submitbutton' id="commonButton"     onclick='OnCommonBlocksConfigurator();'><img id='robotwhiteicon' src='appImages/imgtrans.png' class='imgsubmitbutton'/><span class='translatable-text'>I_COMMON_BLOCKS</span></div>
+            <div class='submitbutton' id="hotEditButton" onclick='OnReferenceHotEdit();'><img id='robotwhiteicon' src='appImages/imgtrans.png' class='imgsubmitbutton'/><span class='translatable-text'>I_HOT_EDIT</span></div>
+            <div class='submitbutton' id="ioSignalsButton" onclick='OnIOSignals();'><img id='othericon' src='appImages/imgtrans.png' class='imgsubmitbutton'><span class='translatable-text'>I_FLEXPENDAND_CUSTOM_IO</span></div>
+            <div class='submitbutton' id="languageEditorButton" onclick='OnLanguageEditor();'><img id='othericon' src='appImages/imgtrans.png' class='imgsubmitbutton'><span class='translatable-text'>I_LANGUAGE_EDITOR</span></div>
+            <div class='submitbutton' id="manualButton" onclick="document.getElementById('id01').style.display = 'block'"><img id='manualicon' src='appImages/imgtrans.png' class='imgsubmitbutton'><span class='translatable-text'>I_USER_MANUAL</span></div>
+            <div class='submitbutton' id="settingsButton" onclick='OnSettings();'><img id='othericon' src='appImages/imgtrans.png' class='imgsubmitbutton'><span class='translatable-text'>I_SETTINGS</span></div>
+        </div>
+
+        <!-- The Modal User Manual view  -->
+        <div id="id01" class="w3-modal">
+            <div class="w3-modal-content w3-animate-top" style="max-width:400px; margin-top:200px;">
+                <header class="w3-container o_blue">
+                    <span onclick="document.getElementById('id01').style.display = 'none'"
+                          class="w3-closebtn">&times;</span>
+                    <h2 style="color:#ffffff;"><font id='I_USER_MANUAL_2'>User manual</font></h2>
+                </header>
+                <div class="w3-container">
+                    <br>
+                    <div id='manualsList'></div>
+                    <br>
+                </div>
+                <footer class="w3-container w3-white">
+                    <p></p>
+                </footer>
+            </div>
+        </div><!-- </modal user manual view -->
+
+        <!-- modal window to check the StampApp version -->
+        <div id="newVersionDialog"></div>
+        <!-- end modal window to check the StampApp version -->
+
+    </body>
+</html>

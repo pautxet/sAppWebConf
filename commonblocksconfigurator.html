@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+        <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1'>
+        <title>StampApp - Common Blocks Configurator (CBC)</title>
+
+        <!-- reload control -->
+        <link rel='StyleSheet' type='text/css' href='StyleCSS/w3.css'>
+        <script src="jsLibraries/jquery.min.js"></script>
+        <script src="jsLibraries/xml2json.js"></script>
+        <script src="jsLibraries/loadxmldoc.js"></script>
+        <script type="text/javascript" src="jsLibraries/handlebars.v4.0.10.js"></script>        
+        <script type="text/javascript" src='index_head.js'></script>  
+
+        <link rel="shortcut icon" href="appImages/ROBOT.ico">
+        <link rel='StyleSheet' type='text/css' href='estil.css'>
+
+        <!-- js Sortable library -->
+        <script src="jsLibraries/Sortable.min.js"></script>
+        <!-- context menu library -->
+        <script src="jsLibraries/context.js"></script>
+        <link rel='StyleSheet' type='text/css' href='jsLibraries/context.standalone.css'>
+        <!-- inici script del menu responsive-->
+        <script>
+            $(function () {
+                var pull = $('#pull');
+                menu = $('nav ul');
+                menuHeight = menu.height();
+
+                $(pull).on('click', function (e) {
+                    e.preventDefault();
+                    menu.slideToggle();
+                });
+            });
+            $(window).resize(function () {
+                var w = $(window).width();
+                if (w > 320 && menu.is(':hidden')) {
+                    menu.removeAttr('style');
+                }
+            });
+        </script>
+
+
+        <script src="jsLibraries/json2xml.js"></script>
+
+        <!-- notificacions -->
+        <script src="jsLibraries/alertify.js"></script>
+        <link rel="stylesheet" href="jsLibraries/cssalertify/alertify.min.css" />
+        <link rel="stylesheet" href="jsLibraries/cssalertify/themes/default.min.css" />
+        <!-- shortcuts -->
+        <script src="jsLibraries/shortcut.js"></script>
+        <script src="jsLibraries/keyboard.min.js"></script>
+        <!-- filesaver -->
+        <script src="jsLibraries/FileSaver.js"></script>
+        <!-- prompt with multiple parameters library -->
+        <script src="jsLibraries/mPrompt.js"></script>
+        <link rel="stylesheet" href="jsLibraries/mPrompt.css" />
+        <script src="jsLibraries/drawCanvas.js"></script>
+    </head>
+
+
+    <body onload="OnLoadAppCBC()">
+        <div id="disablingDiv" ></div>
+        <script> /* script perquè el menú quedi fixe a partir de 0px */
+            $(window).bind('scroll', function () {
+                if ($(window).scrollTop() > 0) {
+                    $('.menu').addClass('fixed');
+                } else {
+                    $('.menu').removeClass('fixed');
+                }
+            });
+        </script>
+        <script src="jsLibraries/jqueryui.min.js"></script>
+        <script src="jsLibraries/jquery.jsPlumb.1.5.0.min.js"></script>
+
+        <script src="jsLibraries/plumbdiagram.js"></script>
+        <script src="jsLibraries/plumbtriggsline.js"></script>
+        <script src='functions.js'></script>
+        <!-- cssTree library -->
+        <link rel="stylesheet" type="text/css" href="jsLibraries/cssTree/_styles.css" media="screen">
+        <!--aquí va el treeview global "treeviewbox"-->
+        <div class="sidebarfixed" id="sidebar">
+            <div class="maintitle">
+                <!-- fileMenu button -->
+                <div class="w3-dropdown-hover own-cursorDefault">
+                    <img id="fileMenu" src="appImages/imgtrans.png" style="width: 25px; height: 25px; display: inline; margin-left: 5px; left: 0px;" />
+                    <font size='3'><b>Common Blocks Configurator</b></font>
+                    <div class="w3-dropdown-content w3-border own-blueDropdown own-marginLeft">
+                        <div class='helpmenuitem' onclick='OnMainButtonClick();' >
+                            <img id="robotwhite" class="" src="appImages/imgtrans.png" /> MAIN
+                        </div>
+                        <div class='helpmenuitem saveButtonAction' onclick="SaveObject();" title="save the actual Bloc Assembly to the robot">
+                            <img id="savebutton" class="" src="appImages/imgtrans.png" title="save the actual Bloc Assembly to the robot"/>
+                            Save to Robot
+                        </div>
+                        <div class='helpmenuitem'><label for="xmlfile_input" title="select an xml file to import">
+                                <img id="importicon" class="" src="appImages/imgtrans.png" /> Import XML
+                            </label>
+                            <div class="image-upload">
+                                <input id="xmlfile_input" onchange="UploadXML()" type="file">
+                            </div></div>
+                        <div onclick='SaveObjectLocally()' class='helpmenuitem' title="export the actual Bloc Assembly to an xml file">
+                            <img id="exporticon" src="appImages/imgtrans.png" />
+                            Export XML
+                        </div>
+                        <div class='helpmenuitem' onclick="document.getElementById('id01').style.display = 'block'" title='Open the User Manual'>
+                            <img id='manualicon' src='appImages/imgtrans.png'/> User manual
+                        </div>
+                        <div class='helpmenuitem' onclick='ShowShortcutBox();' title='show the shortcuts'>
+                            <img id='shortcuticonwhite' src='appImages/imgtrans.png'/> Shortcuts
+                        </div>
+                    </div>
+                </div>
+                <!-- /fileMenu button -->
+                <img id="savebutton" class="savebutton saveButtonAction" src="appImages/imgtrans.png" onclick="SaveObject();"  />
+                <img id="pinbuttontreeview" src="appImages/imgtrans.png" onclick="PinButtonTreeView();" style="width: 25px; height: 25px; display: inline; position: absolute; right:20px;" />
+            </div>
+            <div id="treeview0" class='treeview0'>
+            </div>
+            <div id="blocpropertiesdiv" class="blocpropertiesbox">
+                <p id="blocproperties"></p>
+            </div>
+            <img id="addnewblocbutton" class="addnewblocbutton" src="appImages/imgtrans.png" onclick="AddNewBloc();" />
+        </div>
+        <p id="continguthtml">
+        </p>
+        <div id="shortcutbox" class='shortcutbox'>
+        </div>
+
+        <!-- The Modal User Manual view  -->
+        <div id="id01" class="w3-modal" style="z-index:999999;">
+            <div class="w3-modal-content w3-animate-top" style="max-width:400px; margin-top:200px;">
+                <header class="w3-container o_blue">
+                    <span onclick="document.getElementById('id01').style.display = 'none'"
+                          class="w3-closebtn">&times;</span>
+                    <h2 style="color:#ffffff;">User manual</h2>
+                </header>
+                <div class="w3-container">
+                    <br>
+                    <div id='manualsList'></div>
+                    <br>
+                </div>
+                <footer class="w3-container w3-white">
+                    <p></p>
+                </footer>
+            </div>
+        </div><!-- </modal user manual view -->
+
+        <!-- Check StampApp version dialog-->
+        <div id="newVersionDialog"></div>
+
+        <script src="jsLibraries/plumbdiagram.js"></script>
+    </body>
+</html>
