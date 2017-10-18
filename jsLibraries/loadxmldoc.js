@@ -233,14 +233,14 @@ function LoadIOSignalsData() {
                     if (!(ioSignalsData.CustomIOScreenData.Tabs.HMIButtonLedTabData instanceof Array)) {
                         ioSignalsData.CustomIOScreenData.Tabs.HMIButtonLedTabData = [ioSignalsData.CustomIOScreenData.Tabs.HMIButtonLedTabData];
                     }
-                    var data = ioSignalsData.CustomIOScreenData.Tabs.HMIButtonLedTabData.find(x => x["@Id"] === i + 1);
+                    var data = ioSignalsData.CustomIOScreenData.Tabs.HMIButtonLedTabData.find(x => x["@Id"] == i + 1);
                     if ("undefined" !== typeof data) {
                         iosignals.Tabs[i].description = data.LabelText;
                         for (var j = 0; j < 5; ++j) {
                             if (!(data.Buttons.HMIButtonData instanceof Array)) {
                                 data.Buttons.HMIButtonData = [data.Buttons.HMIButtonData];
                             }
-                            var buttonData = data.Buttons.HMIButtonData.find(x => x["@Id"] === j + 1);
+                            var buttonData = data.Buttons.HMIButtonData.find(x => x["@Id"] == j + 1);
                             if ("undefined" !== typeof buttonData) {
                                 iosignals.Tabs[i].Buttons[j].ActiveColour = buttonData["ActiveColour"];
                                 iosignals.Tabs[i].Buttons[j].ButtonType = buttonData["ButtonType"];
@@ -255,7 +255,7 @@ function LoadIOSignalsData() {
                             if (!(data.Leds.HMILedData instanceof Array)) {
                                 data.Leds.HMILedData = [data.Leds.HMILedData];
                             }
-                            var ledData = data.Leds.HMILedData.find(x => x["@Id"] === j + 1);
+                            var ledData = data.Leds.HMILedData.find(x => x["@Id"] == j + 1);
                             if ("undefined" !== typeof ledData) {
                                 iosignals.Tabs[i].Leds[j].ActiveColour = ledData["ActiveColour"];
                                 iosignals.Tabs[i].Leds[j].DefaultColour = ledData["DefaultColour"];
