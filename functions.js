@@ -1,5 +1,5 @@
 var url = {
-    machine: "",
+    machine: "",	
     pathlocation: "",
     ip: "",
     pathToImages: "",
@@ -2819,7 +2819,7 @@ function AddPointToProcessPoint(idGiv, pointName) {//to add the new point to the
         },
         Alias: pointName,
         AuxRTAllowed: 'true',
-        ExtPoseModified: 'true'
+        ExtPoseModified: 'false'
     };
     if (o.BlocAssembly.AllPoints) {
         o.BlocAssembly.AllPoints.ProcessPoint.push(proto);
