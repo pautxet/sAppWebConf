@@ -28,6 +28,7 @@ function LoadLanguage() {
 }
 
 function LoadSettings() {
+//> loadSettings is at file: loadxmldoc.js
     return window.LoadSettingsData().done(function (data) {
         st = data;
     });
@@ -256,17 +257,21 @@ function onBtnExportPackage() {
                 if (document.getElementById("chkLangExport_" + lang[u]["@title"]).checked == true) {
                     var foldLang = languagesFolder.folder(lang[u]["@title"]);
                     var xmlDocLangAux = LoadXMLDoc("/fileservice/~home/StampApp/LanguageData/" + lang[u]["@title"] + "/sAppFPLiterals.xml");
+                    if (xmlDocLangAux)
+                    {
                     var ojsonLang = xml2json(xmlDocLangAux, "");
                     var langCharged = JSON.parse(ojsonLang);
                     var langFPDuplicated = JSON.parse(JSON.stringify(langCharged));
                     xmlDocLangFP = json2xml(langFPDuplicated);
+                    }
 
                     var xmlDocLangAux = LoadXMLDoc("/fileservice/~home/StampApp/LanguageData/" + lang[u]["@title"] + "/sAppConfLiterals.xml");
                     var ojsonLang = xml2json(xmlDocLangAux, "");
                     var langCharged = JSON.parse(ojsonLang);
                     var langConfigDuplicated = JSON.parse(JSON.stringify(langCharged));
                     xmlDocLangConfig = json2xml(langConfigDuplicated);
-                    foldLang.file("sAppFPLiterals.xml", xmlDocLangFP);
+                    
+                    if(xmlDocLangFP)   {foldLang.file("sAppFPLiterals.xml", xmlDocLangFP);}
                     foldLang.file("sAppConfLiterals.xml", xmlDocLangConfig);
                 }
             }
@@ -303,8 +308,17 @@ function AutoProgressBar() {
         }
     }
 }
-var globalevt;
+
+
+var globalevt; //this gloval variable, is for passing data evt, 
+//between the function: OnBtnImportPackageConfiguration()
+//to the function: onBtnImportSelectedPackage()
+
 function OnBtnImportPackageConfiguration(evt) {
+//this function allows to configure which data to import: [Assembly, Commons,
+//IO_signals, Actions_Modules and Languages. 
+//It also ask us for the file name to import, showing us a explorer window.
+
     globalevt = evt;
     if (document.getElementById("zipfile_input").value != "") {
         var files = evt.target.files;
@@ -341,8 +355,11 @@ function OnBtnImportPackageConfiguration(evt) {
     }
 }
 function onBtnImportSelectedPackage() {
+//this function actually performs the importation of the file, selected at
+//the previous function:  OnBtnImportPackageConfiguration().
     AutoProgressBar();
     evt = globalevt;
+    
     var modulesImported = false;
     var importConfig = {
         assembly: (document.getElementById('chkImportAssembly') !== null && document.getElementById('chkImportAssembly').checked),
@@ -353,9 +370,12 @@ function onBtnImportSelectedPackage() {
     var modulesList = [];
     console.log("selected import configuration:");
     console.table(importConfig);
+    
     if (document.getElementById("zipfile_input").value != "") {
+        
+        
         console.log("--------------------");
-        console.log("starging importation");
+        console.log("starting importation");
         console.log("--------------------");
 
         var importedFileName;
@@ -478,7 +498,7 @@ function onBtnImportSelectedPackage() {
                                     console.log('new directory generated- ' + xmlfilepath);
 
                                 }).fail(function (jqXHR, textStatus, errorThrown) {
-                                    console.log(errorThrown, textStatus);
+                                    console.log(textStatus);
                                 });
                                 setTimeout(function () {
                                     xmlfilepath = "/fileservice/~home/StampApp/LanguageData/" + zipEntry.name.replace("Languages/", "");
@@ -586,8 +606,13 @@ function onBtnImportSelectedPackage() {
 
             }
 
-        }, 3000);
+        }, 3000);   
     }
+    
+    globalevt = null; //just to secure things, clear the file.
+    
+    //to clean the path to the file. 
+    document.getElementById("zipfile_input").value="";
 }
 
 function dataURLtoBlob(dataurl) {
