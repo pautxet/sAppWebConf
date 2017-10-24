@@ -21,6 +21,7 @@ function NavBar() {
 var translations = {};
 
 function LoadLanguage() {
+//> loadLanguageData is at file: loadxmldoc.js
     return window.LoadLanguageData(st.settings.lang)
             .then(function (data) {
                 translations = data;
@@ -498,8 +499,9 @@ function onBtnImportSelectedPackage() {
                                     console.log('new directory generated- ' + xmlfilepath);
 
                                 }).fail(function (jqXHR, textStatus, errorThrown) {
-                                    console.log(textStatus);
+                                    console.log("ERROR in POST: " + xmlfilepat + " - " + textStatus);
                                 });
+								
                                 setTimeout(function () {
                                     xmlfilepath = "/fileservice/~home/StampApp/LanguageData/" + zipEntry.name.replace("Languages/", "");
                                     console.log("PATH: " + xmlfilepath);
@@ -511,7 +513,7 @@ function onBtnImportSelectedPackage() {
                                     }).done(function ( ) {
                                         console.log('put correctly lang- ' + xmlfilepath);
                                     }).fail(function (jqXHR, textStatus, errorThrown) {
-                                        console.log(errorThrown, textStatus);
+                                        console.log("ERROR in PUT: " + xmlfilepat + " - " + textStatus);
                                     });
                                 }, 500);
 
