@@ -260,10 +260,10 @@ function onBtnExportPackage() {
                     var xmlDocLangAux = LoadXMLDoc("/fileservice/~home/StampApp/LanguageData/" + lang[u]["@title"] + "/sAppFPLiterals.xml");
                     if (xmlDocLangAux)
                     {
-                    var ojsonLang = xml2json(xmlDocLangAux, "");
-                    var langCharged = JSON.parse(ojsonLang);
-                    var langFPDuplicated = JSON.parse(JSON.stringify(langCharged));
-                    xmlDocLangFP = json2xml(langFPDuplicated);
+	                    var ojsonLang = xml2json(xmlDocLangAux, "");
+	                    var langCharged = JSON.parse(ojsonLang);
+	                    var langFPDuplicated = JSON.parse(JSON.stringify(langCharged));
+	                    xmlDocLangFP = json2xml(langFPDuplicated);
                     }
 
                     var xmlDocLangAux = LoadXMLDoc("/fileservice/~home/StampApp/LanguageData/" + lang[u]["@title"] + "/sAppConfLiterals.xml");
@@ -499,7 +499,7 @@ function onBtnImportSelectedPackage() {
                                     console.log('new directory generated- ' + xmlfilepath);
 
                                 }).fail(function (jqXHR, textStatus, errorThrown) {
-                                    console.log("ERROR in POST: " + xmlfilepat + " - " + textStatus);
+                                    console.log("ERROR in POST: " + xmlfilepath + " - " + textStatus);
                                 });
 								
                                 setTimeout(function () {
@@ -513,7 +513,7 @@ function onBtnImportSelectedPackage() {
                                     }).done(function ( ) {
                                         console.log('put correctly lang- ' + xmlfilepath);
                                     }).fail(function (jqXHR, textStatus, errorThrown) {
-                                        console.log("ERROR in PUT: " + xmlfilepat + " - " + textStatus);
+                                        console.log("ERROR in PUT: " + xmlfilepath + " - " + textStatus);
                                     });
                                 }, 500);
 
