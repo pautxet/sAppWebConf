@@ -233,7 +233,7 @@ function dropOnInput(ev, idDrop) {
         var led = getTabLedById(idDrop);
         led.InputSignal = signalDragging;
         led.LabelText = signalDragging;
-        led.ActiveColour = "Grey";
+        led.ActiveColour = "Green";
         led.DefaultColour = "Grey";
         setUnsavedChangesState(true);
         renderIOSignalsTemplate(getTabById(idDrop).id-1);
@@ -497,7 +497,8 @@ function prepareXml (signalsData){
                     HMIButtonData: []
                 },
                 LabelText : tab.description
-            }
+            }; 
+            
             for (var ledkey in signalsData.Tabs[key].Leds) {
                 var led = signalsData.Tabs[key].Leds[ledkey];
                 var ledData = {
@@ -506,7 +507,8 @@ function prepareXml (signalsData){
                     ActiveColour: led.ActiveColour,
                     InputSignal: led.InputSignal,
                     LabelText: led.LabelText
-                }
+                }; 
+                
                 data.Leds.HMILedData.push(ledData);
             }
             for (var buttonkey in signalsData.Tabs[key].Buttons) {
@@ -520,7 +522,8 @@ function prepareXml (signalsData){
                     InputSignal: button.InputSignal,
                     WarningMessage: button.WarningMessage,
                     LabelText: button.LabelText
-                }
+                };
+                
                 data.Buttons.HMIButtonData.push(buttonData);
             }        
             finalData.CustomIOScreenData.Tabs.HMIButtonLedTabData.push(data);

@@ -513,7 +513,7 @@ function onBtnImportSelectedPackage() {
                                     }).done(function ( ) {
                                         console.log('put correctly lang- ' + xmlfilepath);
                                     }).fail(function (jqXHR, textStatus, errorThrown) {
-                                        console.log("ERROR in PUT: " + xmlfilepath + " - " + textStatus);
+                                        console.log("ERROR in PUT: " + xmlfilepat + " - " + textStatus);
                                     });
                                 }, 500);
 
@@ -544,7 +544,9 @@ function onBtnImportSelectedPackage() {
                 rwServiceResource.open("POST", unloadmodURL, false);
                 rwServiceResource.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
                 rwServiceResource.send("module=sAppPartData");
-                console.log(modulesList[i]);
+                
+                console.log(modulesList[i]); //Y ESTA i DÓNDE ESTÁ DEFINIDA.
+                
                 var rwServiceResource = new XMLHttpRequest();
                 rwServiceResource.onreadystatechange = function () {
                     if (rwServiceResource.readyState == 4 && (rwServiceResource.status == 204 || rwServiceResource.status == 1223)) {
