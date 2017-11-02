@@ -513,7 +513,7 @@ function onBtnImportSelectedPackage() {
                                     }).done(function ( ) {
                                         console.log('put correctly lang- ' + xmlfilepath);
                                     }).fail(function (jqXHR, textStatus, errorThrown) {
-                                        console.log("ERROR in PUT: " + xmlfilepat + " - " + textStatus);
+                                        console.log("ERROR in PUT: " + xmlfilepath + " - " + textStatus);
                                     });
                                 }, 500);
 
