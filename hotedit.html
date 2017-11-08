@@ -66,7 +66,7 @@
                 <!-- /fileMenu button -->              
                 <img id="pinbuttontreeview" src="appImages/imgtrans.png" onclick="PinButtonHotEdit();" style="width: 25px; height: 25px; display: inline; position: absolute; right:20px;" />
             </div>
-            <div id="PartListTable">
+            <div id="PartListTable" style="z-index:50;">
                 <table class="table table-hover">
                     <thead class="thead-inverse">
                         <tr>
@@ -83,7 +83,7 @@
                 <div style='margin:auto;'> </div>
             </div>
         </div>
-        <div id="hotEditMainBlock" class="BlockWithPinnedSidebar">
+        <div id="hotEditMainBlock" class="BlockWithPinnedSidebar" style="z-index:40;">
             <div class="maintitle">
                 <img id="savebutton" class="savebutton translatable-title" src="appImages/imgtrans.png" onclick="SaveHotEdit();"   title="HOTEDIT_SAVE_CHANGES"/>
                 <h3 id="content-title"></h3>
@@ -105,7 +105,7 @@
         </div> 
 
         <!-- definition of the Import Dialog -->
-        <div id="importDialog" class="w3-modal" >
+        <div id="importDialog" class="w3-modal" style="z-index:1000;" >
             <div class="w3-modal-content w3-animate-top"  >
                 <header class="w3-container o_blue">
                     <span onclick="$('#importDialog').toggle();" class="w3-closebtn">&times;</span>

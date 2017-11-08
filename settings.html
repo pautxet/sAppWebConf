@@ -114,6 +114,22 @@
         <!-- modal window to check the StampApp version -->
         <div id="newVersionDialog"  class="w3-modal"> </div>
 
+        <!-- window to raise an alert, if the status of the robot is not 'stopped' -->
+        <div id="warningDialog" class="w3-modal" style="z-index:1000;" >
+            <div class="w3-modal-content w3-animate-top"  >
+                <header class="w3-container o_blue">
+                    <!--<span onclick="$('#importDialog').toggle();" class="w3-closebtn">&times;</span> -->
+                    <h2 style="color:#ffffff;"><span class='translatable-text'>WARNING!</span></h2>
+                </header>
+                <div class="w3-container">
+                   THE ROBOT EXECUTION STATUS IS NOT 'STOPPED'. THEREFORE THE ACTIONS MODULES CANNOT BE IMPORTED.
+                </div>
+                <footer class="w3-container w3-white">
+                    <button id="importFileSubmit" onclick="onBtnImportSelectedPackage_2();" type="button" class="submitbutton" ><span class="translatable-text">OK</span></button>                    
+                </footer>
+            </div>
+        </div>
+        
 
     </body>
 </html>
