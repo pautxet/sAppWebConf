@@ -802,6 +802,9 @@ function WarnDialogNotStoppedAck(){
         
 function onBtnImportSelectedPackage_2() {
 
+		AutoProgressBar();
+
+
         var importedFileName;
         importedFileName = document.getElementById("zipfile_input").value.replace("C:\\fakepath\\", "");
         //console.log("filename: " + importedFileName);
