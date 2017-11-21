@@ -784,8 +784,9 @@ function onBtnImportSelectedPackage() {
                 //console.log("STATUS: " + Status);
                 //console.log("Error: " + error_string);
             }
-        });
+          });
 	}
+}
 		
 //function launched, when the Warning dialog is 
 function WarnDialogNotStoppedAck(){
@@ -802,9 +803,8 @@ function WarnDialogNotStoppedAck(){
         
 function onBtnImportSelectedPackage_2() {
 
-		AutoProgressBar();
-
-
+	AutoProgressBar();
+	
         var importedFileName;
         importedFileName = document.getElementById("zipfile_input").value.replace("C:\\fakepath\\", "");
         //console.log("filename: " + importedFileName);
@@ -1066,7 +1066,7 @@ function onBtnImportSelectedPackage_2() {
 
         }, 3000);   
 		*/
-    }
+   
 }
 
 function dataURLtoBlob(dataurl) {
