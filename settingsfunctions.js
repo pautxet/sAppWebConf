@@ -396,8 +396,8 @@ function modulesLoad(){
   //conditional load of modules:
   
     if (importConfig.modules == true) {
-      //  setTimeout(function () { its not really needed.
-            var loadmodURL = "http://" + window.location.href.replace("http://", "").split("/")[0] + "/rw/rapid/tasks/T_ROB1?action=loadmod";
+        setTimeout(function () { 
+	    var loadmodURL = "http://" + window.location.href.replace("http://", "").split("/")[0] + "/rw/rapid/tasks/T_ROB1?action=loadmod";
             var unloadmodURL = "http://" + window.location.href.replace("http://", "").split("/")[0] + "/rw/rapid/tasks/T_ROB1?action=unloadmod";
 
             //console.log("loadmodURL: " + loadmodURL);
@@ -492,7 +492,7 @@ function modulesLoad(){
 
             }
 
-      //  }, 3000); //its not really needed.
+          }, 3000); //its not really needed.
     }
 }
 
