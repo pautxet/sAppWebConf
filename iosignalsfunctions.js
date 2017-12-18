@@ -144,7 +144,7 @@ function PaintSignalsFromRobot() {
     llistaSenyalsRaw = GetDataRobot("http://" + url.ip + "/rw/iosystem/signals");
     llistaSenyals = MakeArrayFromHTMLCollection(llistaSenyalsRaw.getElementsByClassName("name"));
     listLinks = llistaSenyalsRaw.getElementsByTagName("a");
-    while (listLinks[1].search !== "?start=0&limit=100") {
+    while ((listLinks[1].search !== "?start=0&limit=100") && (listLinks[1].search !== "?action=show"))  {
         llistaSenyalsRaw = GetNextSignalsFromRobot(listLinks[1].search);
         llistaSenyals = llistaSenyals.concat(MakeArrayFromHTMLCollection(llistaSenyalsRaw.getElementsByClassName("name")));
         listLinks = llistaSenyalsRaw.getElementsByTagName("a");
