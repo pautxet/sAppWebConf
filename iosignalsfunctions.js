@@ -141,6 +141,61 @@ function loadIOSingalsData(){
  ****************************************/
 function PaintSignalsFromRobot() {
     var llistaSenyalsRaw, listLinks, linkNext;
+    
+    //watch-out! because the var "llistaSenyals" is a global variable
+	
+	//get initial signal reference page:
+	
+	var InitialSignasURL = "http://" + url.ip + "/rw/iosystem/signals";
+	
+    llistaSenyalsRaw = GetDataRobot(InitialSignasURL);
+	
+	var s = llistaSenyalsRaw;
+	
+	var v = s.getElementsByClassName("state");
+	
+	var z = v[0].childNodes; //the lastChild is suppoused to be an <ul></ul> with all the signals inside.
+	/*
+	* we should obtain something like:
+	* 	z[0].href = http:127.0.0.1:1234/rw/iosystems/signals
+	*	z[1].href = http:127.0.0.1:1234/rw/iosystems/signals?action=show
+	*	z[2].href = http:127.0.0.1:1234/rw/iosystems/signals?start=100&limit=100
+	*	z[3].href = undefinded
+	*/
+	
+	//we get the signals at the first page:
+	var y = MakeArrayFromHTMLCollection(z[(z.length-1)].getElementsByClassName('name'));
+	
+	llistaSenyals = llistaSenyals.concat(y);
+	
+	for( var i=1; i<z.length-1; i++) //i=0 is the previous case.
+	{
+		if( z[i].href != "http://127.0.0.1:1234/rw/iosystem/signals?action=show")
+		{
+				var s2 = GetDataRobot(z[i].href);
+				
+				var v2 = s2.getElementsByClassName("state");
+				
+				var z2 = v2[0].childNodes;
+				
+				if(z2) //if it is not null, or undefined ...
+				{
+					var y2 = MakeArrayFromHTMLCollection(z2[(z2.length-1)].getElementsByClassName('name'));
+					
+					if(y2)
+					{
+						llistaSenyals = llistaSenyals.concat(y2);
+					}
+					
+				}
+		}
+	}
+	
+	console.log("llistaSenyals");
+	console.log(llistaSenyals);
+    
+    
+    /* TODO: clear-remove when tested
     llistaSenyalsRaw = GetDataRobot("http://" + url.ip + "/rw/iosystem/signals");
     llistaSenyals = MakeArrayFromHTMLCollection(llistaSenyalsRaw.getElementsByClassName("name"));
     listLinks = llistaSenyalsRaw.getElementsByTagName("a");
@@ -148,11 +203,13 @@ function PaintSignalsFromRobot() {
         llistaSenyalsRaw = GetNextSignalsFromRobot(listLinks[1].search);
         llistaSenyals = llistaSenyals.concat(MakeArrayFromHTMLCollection(llistaSenyalsRaw.getElementsByClassName("name")));
         listLinks = llistaSenyalsRaw.getElementsByTagName("a");
-    }
+    }*/
+    
     document.getElementById("leftColumn").innerHTML = "";
     for (var i = 0; i < llistaSenyals.length; i++) {
         document.getElementById("leftColumn").innerHTML += "<div draggable='true' ondragstart='drag(event, this.id)' class='signalFromRobot' id='" + llistaSenyals[i] + "'>" + llistaSenyals[i] + "</div>";
     }
+    
 }
 
 function GetNextSignalsFromRobot(linkNext) {
