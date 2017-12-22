@@ -530,6 +530,7 @@ img.imagelogo:hover{
     background: #b6c0ce;
     float: right;
     height: 30px;
+    display: flex;
 }
 
 .ui-tabs.ui-tabs-vertical .ui-tabs-nav li:hover {
