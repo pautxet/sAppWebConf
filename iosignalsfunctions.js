@@ -71,7 +71,8 @@ function OnLoadAppIOSignals() {
     .then(function () {        
         prepareContextMenus();
         PaintSignalsFromRobot();
-        alertify.success(translations.IO_DATA_CHARGED_FROM_ROBOT);
+        var load_ok_message = translations.IO_DATA_CHARGED_FROM_ROBOT + " (" + llistaSenyals.length +")";
+        alertify.success(load_ok_message);  //reports the number of signals loaded.
         renderIOSignalsTemplate();   
         window.CheckCurrentVersion();
     });
@@ -140,12 +141,25 @@ function loadIOSingalsData(){
  * list of robot signals functions
  ****************************************/
 function PaintSignalsFromRobot() {
+	
+	// reference:  http://developercenter.robotstudio.com/webservice/api_reference
+	/*
+	* There are a number of possible attributes, when working with the RS.
+	*
+	*	Self: Refers to a resource equivalent to the containing element
+	*	Action: Refers to an action resource.
+	*	First: First resource (page) in a list of resources
+	*	Next: Next resource (page) in a list of resources
+	*	Prev: Previous resource (page) in a list of resources
+	*	Last: Last resource (page) in a list of resources
+	*
+	*/
+	
     var llistaSenyalsRaw, listLinks, linkNext;
     
     //watch-out! because the var "llistaSenyals" is a global variable
 	
-	//get initial signal reference page:
-	
+	//get initial signal reference:
 	var InitialSignasURL = "http://" + url.ip + "/rw/iosystem/signals";
 	
     llistaSenyalsRaw = GetDataRobot(InitialSignasURL);
@@ -160,63 +174,89 @@ function PaintSignalsFromRobot() {
 	* 	z[0].href = http:127.0.0.1:1234/rw/iosystems/signals
 	*	z[1].href = http:127.0.0.1:1234/rw/iosystems/signals?action=show
 	*	z[2].href = http:127.0.0.1:1234/rw/iosystems/signals?start=100&limit=100
-	*	z[3].href = undefinded
+	*	z[3].href = undefinded -- this is an <ul>, with all the signals inside of it.
 	*/
-	
+		
 	//we get the signals at the first page:
 	var y = MakeArrayFromHTMLCollection(z[(z.length-1)].getElementsByClassName('name'));
+	//the signals are defined in html, as: <span class="name">signal_name</span>; so getting the "name" class we can pin-point them.
 	
 	llistaSenyals = llistaSenyals.concat(y);
+		
+	var iteration_flag = true;  // to control the iteration throught the different pages that have the signals names. 
 	
-	for( var i=1; i<z.length-1; i++) //i=0 is the previous case.
-	{
-		if( z[i].href != "http://127.0.0.1:1234/rw/iosystem/signals?action=show")
+	var counter = 0; 
+	
+	while(iteration_flag)
+	{  
+		counter++;
+		if(counter>100) { iteration_flag = false;} //never ever write an infinite loop.
+		console.log("while loops: " + counter);
+		
+		// now we have to iterate through the following links to the remaining signals.
+		for( var i=1; i<z.length-1; i++) //i=0 (initial case) is the previous case.
 		{
-				var s2 = GetDataRobot(z[i].href);
-				
-				var v2 = s2.getElementsByClassName("state");
-				
-				var z2 = v2[0].childNodes;
-				
-				if(z2) //if it is not null, or undefined ...
+			//links with this parameter: "?action=show", don't do anything, we skip it. 
+			if( !z[i].href.endsWith("?action=show") )  
+			{
+				//we have to check for the next link to follow. It should match a pattern like:
+				// <a href="signals?start=100&amp;limit=100" rel="next"> 
+				// the attribute: rel = "next", means, that it is the following link, to get the remaining signals names.
+				if( z[i].getAttribute("rel") == "next" )
 				{
-					var y2 = MakeArrayFromHTMLCollection(z2[(z2.length-1)].getElementsByClassName('name'));
 					
-					if(y2)
+					var s2 = GetDataRobot(z[i].href); //this makes the http request.
+					
+					var v2 = s2.getElementsByClassName("state"); //what we are looking for is inside the "state"
+					
+					var z2 = v2[0].childNodes; //we get all the child nodes of the "state" element.
+					
+					if(z2) //faul-save: if it is not null, or undefined ... just in case.
 					{
-						llistaSenyals = llistaSenyals.concat(y2);
+ 
+						//the signals are defined in html, as: <span class="name">signal_name</span>; so getting the "name" class we can pin-point them.
+						//we retrieve all the signals
+						var y2 = MakeArrayFromHTMLCollection(z2[(z2.length-1)].getElementsByClassName('name'));
+						
+						if(y2) //just-in case there aren't any signals:
+						{
+							// add new signals:
+							llistaSenyals = llistaSenyals.concat(y2);
+							
+							//reasign to the loop variables, to loop around the 'while'
+							z = z2;
+							
+							
+							
+						} else {
+							//if there arent any signals,then we dont continue searching.
+							iteration_flag = false;  
+						}
+						
+					} else{
+						iteration_flag = false;  //if the "next" link doesn't exit, then we dont continue searching.
 					}
+				
+				} else if( z[i].getAttribute("rel") == "first"){
 					
+					//we have warp around the signals. this is done!
+					iteration_flag = false; 
 				}
+			}
 		}
 	}
-	
-	console.log("llistaSenyals");
-	console.log(llistaSenyals);
-    
-    
-    /* TODO: clear-remove when tested
-    llistaSenyalsRaw = GetDataRobot("http://" + url.ip + "/rw/iosystem/signals");
-    llistaSenyals = MakeArrayFromHTMLCollection(llistaSenyalsRaw.getElementsByClassName("name"));
-    listLinks = llistaSenyalsRaw.getElementsByTagName("a");
-    while ((listLinks[1].search !== "?start=0&limit=100") && (listLinks[1].search !== "?action=show"))  {
-        llistaSenyalsRaw = GetNextSignalsFromRobot(listLinks[1].search);
-        llistaSenyals = llistaSenyals.concat(MakeArrayFromHTMLCollection(llistaSenyalsRaw.getElementsByClassName("name")));
-        listLinks = llistaSenyalsRaw.getElementsByTagName("a");
-    }*/
+
+	//console.log("llistaSenyals");
+	//console.log(llistaSenyals);
     
     document.getElementById("leftColumn").innerHTML = "";
     for (var i = 0; i < llistaSenyals.length; i++) {
-        document.getElementById("leftColumn").innerHTML += "<div draggable='true' ondragstart='drag(event, this.id)' class='signalFromRobot' id='" + llistaSenyals[i] + "'>" + llistaSenyals[i] + "</div>";
+        document.getElementById("leftColumn").innerHTML += "<div draggable='true' ondragstart='drag(event, this.id)' class='signalFromRobot' id='" +
+		llistaSenyals[i] + "'>" + llistaSenyals[i] + "</div>";
     }
     
 }
 
-function GetNextSignalsFromRobot(linkNext) {
-    var arrayToReturn;
-    arrayToReturn = GetDataRobot("http://" + url.ip + "/rw/iosystem/signals" + linkNext);
-    return(arrayToReturn);
-}
 
 function MakeArrayFromHTMLCollection(HTMLCollectiongiv) {
     var arrayAux = [];
